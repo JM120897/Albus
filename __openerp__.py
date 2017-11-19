@@ -29,7 +29,7 @@
     Modulo referente a la gestion del alquiler de autobuses.
     """,
     "init_xml": [],
-    'update_xml': [],
+    'update_xml': ['autobus_view.xml'],
     'demo_xml': [],
     'installable': True,
     'active': False,
