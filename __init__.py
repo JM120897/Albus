@@ -19,19 +19,5 @@
 #    along with this program.  If not, see http://www.gnu.org/licenses/.
 #
 ##############################################################################
-{
-    "name": "Albus",
-    "version": "1.0",
-    "depends": ["base"],
-    "author": "Equipo 02",
-    "category": "Autobus",
-    "description": """
-    Modulo referente a la gestion del alquiler de autobuses.
-    """,
-    "init_xml": [],
-    'update_xml': [],
-    'demo_xml': [],
-    'installable': True,
-    'active': False,
-#    'certificate': 'certificate',
-}
+
+import autobus
