@@ -25,7 +25,7 @@ from osv import fields
 class autobus(osv.Model):
 
     _name = 'autobus'
-    _description = 'Información sobre autobus'
+    _description = 'Informacion sobre autobus'
  
     _columns = {
             'matricula':fields.char('Matricula', size=64, required=False, readonly=False),
