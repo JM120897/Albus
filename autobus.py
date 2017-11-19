@@ -28,10 +28,10 @@ class autobus(osv.Model):
     _description = 'Información sobre autobus'
  
     _columns = {
-            'matricula':fields.char('Matrícula', size=64, required=False, readonly=False),
-            'numAsientos':fields.integer('Número de Plazas'),
-            'modelo':fields.char('Matrícula', size=64, required=False, readonly=False),
+            'matricula':fields.char('Matricula', size=64, required=False, readonly=False),
+            'numAsientos':fields.integer('Numero de Plazas'),
+            'modelo':fields.char('Matricula', size=64, required=False, readonly=False),
             'consumo':fields.float('Consumo'),
-            'revisado':fields.boolean('Necesita Revisión'), #Cada mes este atributo pasara a FALSE
+            'revisado':fields.boolean('Necesita Revision'), #Cada mes este atributo pasara a FALSE
         }
 autobus()
