@@ -24,10 +24,14 @@ from osv import fields
 
 class autobus(osv.Model):
 
-    _name = 'Autobus'
-    _description = 'Clase en la que se especifica el modelo de autobus'
+    _name = 'autobus'
+    _description = 'Información sobre autobus'
  
     _columns = {
-            'name':fields.char('data', size=64, required=False, readonly=False),
+            'matricula':fields.char('Matrícula', size=64, required=False, readonly=False),
+            'numAsientos':fields.integer('Número de Plazas'),
+            'modelo':fields.char('Matrícula', size=64, required=False, readonly=False),
+            'consumo':fields.float('Consumo'),
+            'revisado':fields.boolean('Necesita Revisión'), #Cada mes este atributo pasara a FALSE
         }
 autobus()
