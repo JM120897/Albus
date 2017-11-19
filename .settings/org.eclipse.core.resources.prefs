@@ -1,4 +1,8 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 encoding/__init__.py=utf-8
+=======
+encoding/Alquiler.py=utf-8
+>>>>>>> branch 'master' of https://github.com/JM120897/Albus.git
 encoding/__openerp__.py=utf-8
 encoding/autobus.py=utf-8
