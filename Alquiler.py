@@ -36,5 +36,6 @@ class alquiler(osv.Model):
             'descripcion':fields.char('Descripcion', size=150, required=False, readonly=False),
             'lugarOrigen':fields.char('Lugar de Origen', size=64, required=False, readonly=False),
             'lugarDestino':fields.char('Lugar de Destino', size=64, required=False, readonly=False),
+            
         }
 alquiler()
