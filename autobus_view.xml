@@ -5,7 +5,7 @@
             <field name="name">Autobus</field>
             <field name="res_model">autobus</field>
             <field name="view_type">form</field>
-            <field name="view_mode">form</field>
+            <field name="view_mode">form, tree</field>
         </record>
         <menuitem id="autobus_menu" name="Autobus" action="act_autobus" />
         <menuitem name="Autobuses" id="autobus_submenu" parent="autobus_menu" sequence="100" action="act_autobus" />
