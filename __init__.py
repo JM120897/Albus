@@ -22,3 +22,4 @@
 
 import autobus
 import mantemiento
+import alquiler
