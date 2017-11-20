@@ -1,16 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
-	<data>
-		<record id="act_mantenimiento" model="ir.actions.act_window">
-			<field name="name">Manteniento</field>
-			<field name="res_model">mantenimiento</field>
-			<field name="view_type">form</field>
-			<field name="view_mode">form</field>
-		</record>
-		<menuitem id="mantenimiento_menu" name="Mantenimiento"
-			action="act_mantenimiento" />
-		<menuitem name="Mantenimientos" id="mantenimiento_submenu"
-			parent="mantenimiento_menu" sequence="100" action="act_mantenimiento" />
+    <data>
+        <record id="act_mantenimiento" model="ir.actions.act_window">
+            <field name="name">Mantenimiento</field>
+            <field name="res_model">mantenimiento</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+        </record>
+        <record id="view_mantenimiento_mantenimiento_form" model="ir.ui.view">
+            <field name="name">view_mantenimiento_form</field>
+            <field name="model">mantenimiento</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="tree_string">
+                    <field name="fecha" />
+                    <field name="precio" />
+                    <field name="name" />
+                </form>
+            </field>
+        </record>
+        <record id="view_mantenimiento_mantenimiento_tree" model="ir.ui.view">
+            <field name="name">view_mantenimiento_tree</field>
+            <field name="model">mantenimiento</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="tree_string">
+                    <field name="fecha" />
+                    <field name="precio" />
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+        <menuitem id="mantenimiento_menu" name="Mantenimiento"
+            action="act_mantenimiento" />
+        <menuitem name="Mantenimientos" id="mantenimiento_submenu"
+            parent="mantenimiento_menu" sequence="100" action="act_mantenimiento" />
 
-	</data>
+    </data>
 </openerp>
