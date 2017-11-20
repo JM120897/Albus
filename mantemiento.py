@@ -29,6 +29,7 @@ class mantenimiento(osv.Model):
     _columns = {
             'name':fields.char('Descripcion', size=64, required=False, readonly=False),
             'precio':fields.float('Precio', required=True),
-            'fecha':fields.date('Fecha', required=True)
+            'fecha':fields.date('Fecha', required=True),
+            'matricula_id':fields.many2one("autobus","Matricula"),
         }
 mantenimiento()

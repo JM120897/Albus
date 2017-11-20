@@ -33,5 +33,6 @@ class autobus(osv.Model):
             'modelo':fields.char('Modelo de Autobus', size=64, required=False, readonly=False),
             'consumo':fields.float('Consumo (L/Km)'),
             'revisado':fields.boolean('Necesita Revision'), #Cada mes este atributo pasara a FALSE
+            'mantenimiento_id':fields.one2many("mantenimiento","matricula_id","Mantenimientos"),
         }
 autobus()
