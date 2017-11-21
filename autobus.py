@@ -28,7 +28,7 @@ class autobus(osv.Model):
     _description = 'Informacion sobre autobus'
  
     _columns = {
-            'matricula':fields.char('Matricula', size=64, required=False, readonly=False),
+            'name':fields.char('Matricula', size=64, required=False, readonly=False),
             'numAsientos':fields.integer('Numero de Plazas'),
             'modelo':fields.char('Modelo de Autobus', size=64, required=False, readonly=False),
             'consumo':fields.float('Consumo (L/Km)'),

@@ -5,9 +5,48 @@
             <field name="name">Autobus</field>
             <field name="res_model">autobus</field>
             <field name="view_type">form</field>
-            <field name="view_mode">form, tree</field>
+            <field name="view_mode">form,tree</field>
         </record>
-        <menuitem id="autobus_menu" name="Autobus" action="act_autobus" />
-        <menuitem name="Autobuses" id="autobus_submenu" parent="autobus_menu" sequence="100" action="act_autobus" />
-    </data> 
+        <record id="view_garaje_autobus_form" model="ir.ui.view">
+            <field name="name">view_autobus_form</field>
+            <field name="model">autobus</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="form_string">
+                    <field name="name" />
+                    <field name="numAsientos" />
+                    <field name="modelo" />
+                    <field name="consumo" />
+                    <field name="revisado" />
+                    <field name="mantenimiento_id">
+                        <tree string="uvuvwevwevwe">
+                            <field name="fecha" />
+                            <field name="precio" />
+                            <field name="name" />
+                        </tree>
+                    </field>
+                </form>
+            </field>
+        </record>
+        <record id="view_garaje_autobus_tree" model="ir.ui.view">
+            <field name="name">view_autobus_tree</field>
+            <field name="model">autobus</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="tree_string">
+                    <field name="name" />
+                    <field name="numAsientos" />
+                    <field name="modelo" />
+                    <field name="consumo" />
+                    <field name="revisado" />
+                    <field name="mantenimiento_id" />
+                </tree>
+            </field>
+        </record>
+        <menuitem id="garaje" name="Garaje" action="act_autobus" />
+        <menuitem id="autobus_menu" name="Gestion de Flota" action="act_autobus"
+            parent="garaje" sequence="100" />
+        <menuitem id="autobus_submenu" name="Ver Autobuses" parent="autobus_menu"
+            sequence="110" action="act_autobus" />
+    </data>
 </openerp>
