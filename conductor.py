@@ -29,14 +29,14 @@ class conductor(osv.Model):
     _description = 'Informacion sobre los conductores'
  
     _columns = {
-            'dni':fields.char('dni', size=64, required=False, readonly=False),
-            'nombre':fields.char('nombre', size=64, required=False, readonly=False),
-            'apellidos':fields.char('apellidos', size=64, required=False, readonly=False),
-            'sexo':fields.char('sexo', size=64, required=False, readonly=False),
-            'telefono':fields.integer('telefono',required=False, readonly=False),
-            'correo':fields.char('correo', size=64, required=False, readonly=False),
-            'direccion':fields.char('direccion', size=64, required=False, readonly=False),
-            'cuentaCorriente':fields.char('cuentaCorriente', size=64, required=False, readonly=False),
-            
+            'name':fields.char('DNI', size=64, required=True, readonly=False),
+            'nombre':fields.char('Nombre', size=64, required=False, readonly=False),
+            'apellidos':fields.char('Apellidos', size=64, required=False, readonly=False),
+            'sexo':fields.selection((('h','Hombre'),('m','Mujer'),('x','Otro')),'Sexo'),
+            'telefono':fields.integer('Telefono',required=False, readonly=False),
+            'correo':fields.char('Correo', size=64, required=False, readonly=False),
+            'direccion':fields.char('Direccion', size=64, required=False, readonly=False),
+            'cuentaCorriente':fields.char('Cuenta Corriente', size=64, required=True, readonly=False),
+            'servicio_id':fields.one2many("servicio","conductor_id","Servicios"),
         }
 conductor()
