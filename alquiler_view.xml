@@ -13,6 +13,7 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="tree_string">
+                    <field name="Name"/>
                     <field name="ID" />
                     <field name="Horas" />
                     <field name="Fecha" />
@@ -29,7 +30,8 @@
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <tree string="tree_string">
-                   <field name="ID" />
+                   	<field name="Name"/>
+                   	<field name="ID" />
                     <field name="Horas" />
                     <field name="Fecha" />
                     <field name="NumPersonas" />

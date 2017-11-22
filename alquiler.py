@@ -29,7 +29,8 @@ class alquiler(osv.Model):
     _description = 'Informaci�n sobre los alquileres'
  
     _columns = {
-            'id':fields.char('id', size=64, required=False, readonly=False),
+            'name':fields.char('name', size=64, required=True, readonly=False),
+            'id':fields.char('id', size=64, required=True, readonly=False),
             'horas':fields.integer('Horas de alquiler',required=False, readonly=False),
             'fecha':fields.date('Fecha', required=False, readonly=False),
             'numPersonas':fields.integer('Numero de personas',required=False, readonly=False),

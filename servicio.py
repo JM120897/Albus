@@ -29,8 +29,9 @@ class servicio(osv.Model):
     _description = 'Informacion sobre el servicio'
  
     _columns = {
-            
+            'id':fields.char('id', size=64, required=True, readonly=False),
             'descripcion':fields.char('Descripcion', size=150, required=False, readonly=False),
+            'km':fields.integer('Kilometros',required=False, readonly=False),
           
         }
 servicio()
