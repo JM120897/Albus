@@ -26,11 +26,10 @@ from osv import fields
 class alquiler(osv.Model):
 
     _name = 'alquiler'
-    _description = 'Informaci�n sobre los alquileres'
+    _description = 'Informacion sobre los alquileres'
  
     _columns = {
-            'name':fields.char('name', size=64, required=True, readonly=False),
-            'id':fields.char('id', size=64, required=True, readonly=False),
+            'name':fields.char('ID', size=64, required=True, readonly=False),
             'horas':fields.integer('Horas de alquiler',required=False, readonly=False),
             'fecha':fields.date('Fecha', required=False, readonly=False),
             'numPersonas':fields.integer('Numero de personas',required=False, readonly=False),
