@@ -1,47 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
     <data>
-       <record id="act_alquiler" model="ir.actions.act_window">
-            <field name="name">alquiler</field>
-            <field name="res_model">alquiler</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">form,tree</field>
-       </record>
-       <record id="view_alquiler_form" model="ir.ui.view">
-			<field name="name">view_alquiler_form</field>
-           	<field name="model">alquiler</field>
+        <record id="view_garaje_alquiler_form" model="ir.ui.view">
+            <field name="name">view_alquiler_form</field>
+            <field name="model">alquiler</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="tree_string">
-                    <field name="name"/>
-                    <field name="iD" />
+                    <field name="name" />
                     <field name="horas" />
                     <field name="fecha" />
                     <field name="numPersonas" />
                     <field name="descripcion" />
-                   	<field name="lugarOrigen" />
+                    <field name="lugarOrigen" />
                     <field name="lugarDestino" />
                 </form>
             </field>
         </record>
-        <record id="view_alquiler_tree" model="ir.ui.view">
+        <record id="view_garaje_alquiler_tree" model="ir.ui.view">
             <field name="name">view_alquiler_tree</field>
             <field name="model">alquiler</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <tree string="tree_string">
-                   	<field name="name"/>
-                    <field name="iD" />
+                    <field name="name" />
                     <field name="horas" />
                     <field name="fecha" />
                     <field name="numPersonas" />
                     <field name="descripcion" />
-                   	<field name="lugarOrigen" />
+                    <field name="lugarOrigen" />
                     <field name="lugarDestino" />
                 </tree>
             </field>
         </record>
-        <menuitem id="alquiler_menu" name="Alquiler" action="act_alquiler" sequence="100"/>
-        <menuitem name="Alquiler" id="alquiler_submenu" parent="alquiler_menu" sequence="110"  action="act_alquiler" />
-    </data> 
+        <record id="act_alquiler" model="ir.actions.act_window">
+            <field name="name">Alquiler</field>
+            <field name="res_model">alquiler</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+        </record>
+        <menuitem id="gestionAlquiler" name="Gestion Alquileres"
+            action="act_alquiler" />
+        <menuitem id="alquiler_menu" parent="gestionAlquiler" name="Alquiler"
+            action="act_alquiler" sequence="100" />
+        <menuitem name="Ver Alquileres" id="alquiler_submenu" parent="alquiler_menu"
+            sequence="110" action="act_alquiler" />
+    </data>
 </openerp>
