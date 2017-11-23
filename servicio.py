@@ -34,5 +34,6 @@ class servicio(osv.Model):
             'km':fields.integer('Kilometros',required=False, readonly=False),
             'matricula_id':fields.many2one("autobus","Matricula"),
             'conductor_id':fields.many2one("conductor","Conductor"),
+            'alquiler_id':fields.many2one("alquiler","Alquiler"),
         }
 servicio()
