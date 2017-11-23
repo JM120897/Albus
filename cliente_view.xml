@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_cliente_form" model="ir.ui.view">
+            <field name="name">view_cliente_form</field>
+            <field name="model">cliente</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="tree_string">
+                    <field name="name" />
+                   	<field name="nombre" />
+                  	<field name="apellidos" />
+                  	<field name="telefono" />
+                  	<field name="correo" />
+                </form>
+            </field>
+        </record>
+        <record id="view_cliente_tree" model="ir.ui.view">
+            <field name="name">view_cliente_tree</field>
+            <field name="model">cliente</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="tree_string">
+                   	<field name="name" />
+                   	<field name="nombre" />
+                  	<field name="apellidos" />
+                  	<field name="telefono" />
+                  	<field name="correo" />
+                </tree>
+            </field>
+        </record>
+        <record id="act_cliente" model="ir.actions.act_window">
+            <field name="name">cliente</field>
+            <field name="res_model">cliente</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+        </record>
+        <menuitem id="cliente_menu" parent="gestionAlquiler" name="Cliente"
+            action="act_cliente" sequence="100" />
+        <menuitem name="Ver Cliente" id="cliente_submenu" parent="cliente_menu"
+            sequence="110" action="act_cliente" />
+    </data>
+</openerp>

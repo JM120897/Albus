@@ -33,7 +33,7 @@
             <field name="view_type">form</field>
             <field name="view_mode">form,tree</field>
         </record>
-        <menuitem id="gestionApuntes" name="Gestion Apuntes"
+        <menuitem id="gestionApuntes" name="Gestion Economica"
             action="act_apuntes" />
         <menuitem id="apuntes_menu" parent="gestionApuntes" name="Apuntes"
             action="act_apuntes" sequence="100" />

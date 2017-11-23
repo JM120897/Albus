@@ -29,7 +29,7 @@
             <field name="name">vacaciones</field>
             <field name="res_model">vacaciones</field>
             <field name="view_type">form</field>
-            <field name="view_mode">form,tree</field>
+            <field name="view_mode">form,tree,calendar</field>
         </record>
 
         <menuitem id="vacaciones_menu" parent="gestionConductor" name="Vacaciones"
