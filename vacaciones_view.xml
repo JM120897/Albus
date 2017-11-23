@@ -25,11 +25,21 @@
                 </tree>
             </field>
         </record>
+        <record model="ir.ui.view" id="view_vacaciones_calendar">
+ 			<field name="name">view_vacaciones_calendar</field>
+ 			<field name="model">vacaciones</field>
+			<field name="type">calendar</field>
+ 			<field name="arch" type="xml">
+ 				<calendar string="Vacaciones" color="conductor" date_start="fechaIni" date_stop="fechaFin">
+ 					<field name="state"/>
+ 				</calendar>
+ 			</field>
+		</record>	
         <record id="act_vacaciones" model="ir.actions.act_window">
             <field name="name">vacaciones</field>
             <field name="res_model">vacaciones</field>
             <field name="view_type">form</field>
-            <field name="view_mode">form,tree</field>
+            <field name="view_mode">form,tree,calendar</field>
         </record>
         <menuitem id="gestionVacaciones" name="Gestion Vacaciones"
             action="act_vacaciones" />
