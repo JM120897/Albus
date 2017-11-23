@@ -8,6 +8,7 @@
             <field name="arch" type="xml">
                 <form string="tree_string">
                     <field name="name" />
+                    <field name="conductor_id"/>
                     <field name="fechaIni" />
                     <field name="fechaFin" />
                 </form>
@@ -20,11 +21,22 @@
             <field name="arch" type="xml">
                 <tree string="tree_string">
                     <field name="name" />
+                    <field name="conductor_id"/>
                     <field name="fechaIni" />
                     <field name="fechaFin" />
                 </tree>
             </field>
         </record>
+        <record model="ir.ui.view" id="view_vacaciones_calendar">
+ 			<field name="name">view_vacaciones_calendar</field>
+			<field name="model">vacaciones</field>
+ 			<field name="type">calendar</field>
+ 			<field name="arch" type="xml">
+ 				<calendar string="Calendario" color="conductor_id" date_start="fechaIni" date_stop="fechaFin">
+ 					<field name="name"/>
+ 				</calendar>
+ 			</field>
+		</record>
         <record id="act_vacaciones" model="ir.actions.act_window">
             <field name="name">vacaciones</field>
             <field name="res_model">vacaciones</field>
