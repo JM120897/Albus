@@ -32,7 +32,7 @@ class servicio(osv.Model):
             'name':fields.char('ID', size=64, required=True, readonly=False),
             'descripcion':fields.char('Descripcion', size=150, required=False, readonly=False),
             'km':fields.integer('Kilometros',required=False, readonly=False),
-            'matricula_id':fields.many2one("autobus","Matricula"),
+            'matricula_id':fields.many2one("autobus","Autobus"),
             'conductor_id':fields.many2one("conductor","Conductor"),
             'alquiler_id':fields.many2one("alquiler","Alquiler"),
         }

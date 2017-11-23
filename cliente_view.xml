@@ -8,9 +8,9 @@
             <field name="arch" type="xml">
                 <form string="tree_string">
                     <field name="name" />
+                  	<field name="telefono" />
                    	<field name="nombre" />
                   	<field name="apellidos" />
-                  	<field name="telefono" />
                   	<field name="correo" />
                 </form>
             </field>
@@ -22,15 +22,15 @@
             <field name="arch" type="xml">
                 <tree string="tree_string">
                    	<field name="name" />
+                  	<field name="telefono" />
                    	<field name="nombre" />
                   	<field name="apellidos" />
-                  	<field name="telefono" />
                   	<field name="correo" />
                 </tree>
             </field>
         </record>
         <record id="act_cliente" model="ir.actions.act_window">
-            <field name="name">cliente</field>
+            <field name="name">Cliente</field>
             <field name="res_model">cliente</field>
             <field name="view_type">form</field>
             <field name="view_mode">form,tree</field>

@@ -1,66 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
-    <data>
-        <record id="view_servicio_form" model="ir.ui.view">
-            <field name="name">view_servicio_form</field>
-            <field name="model">servicio</field>
-            <field name="type">form</field>
-            <field name="arch" type="xml">
-                <form string="tree_string">
-                    <field name="name" />
-                    <field name="descripcion" />
-                    <field name="km" />
-                    <field name="matricula_id" />
-                    <field name="conductor_id" />
-                    <field name="alquiler_id" />
-                    
-                </form>
-            </field>
-        </record>
-        <record id="view_servicio_tree" model="ir.ui.view">
-            <field name="name">view_servicio_tree</field>
-            <field name="model">servicio</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <tree string="tree_string">
-                   <field name="name" />
-                    <field name="descripcion" />
-                    <field name="km" />
-                    <field name="matricula_id" />
-                    <field name="conductor_id" />
-                    <field name="alquiler_id" />
-                </tree>
-            </field>
-        </record>
-        
-        <record model="ir.ui.view" id="view_servicio_graph">
-			<field name="name">view_servicio_graph</field>
- 			<field name="model">servicio</field>
-			<field name="type">graph</field>
- 			<field name="arch" type="xml">
- 				<graph string="Kilometros totales" orientation="horizontal" type="bar">
-					<field name="name"/>
-					<field name="km"/>
-				</graph>
- 			</field>
+	<data>
+		<record id="view_servicio_form" model="ir.ui.view">
+			<field name="name">view_servicio_form</field>
+			<field name="model">servicio</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="tree_string">
+					<field name="name" />
+					<field name="descripcion" />
+					<field name="matricula_id" />
+					<field name="conductor_id" />
+					<field name="km" />
+				</form>
+			</field>
 		</record>
-         
-         
-         
-         
-         
-      
-        <record id="act_servicio" model="ir.actions.act_window">
-            <field name="name">servicio</field>
-            <field name="res_model">servicio</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">form,tree,graph</field>
-        </record>
-        <menuitem id="gestionServicio" name="Gestion Servicio"
-            action="act_servicio" />
-        <menuitem id="servicio_menu" parent="gestionServicio" name="Servicio"
-            action="act_conductor" sequence="100" />
-        <menuitem name="Ver Servicios" id="servicio_submenu" parent="servicio_menu"
-            sequence="110" action="act_servicio" />
-    </data>
+		<record id="view_servicio_tree" model="ir.ui.view">
+			<field name="name">view_servicio_tree</field>
+			<field name="model">servicio</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+					<field name="descripcion" />
+					<field name="matricula_id" />
+					<field name="conductor_id" />
+					<field name="alquiler_id" />
+					<field name="km" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_servicio_graph">
+			<field name="name">view_servicio_graph</field>
+			<field name="model">servicio</field>
+			<field name="type">graph</field>
+			<field name="arch" type="xml">
+				<graph string="Kilometros totales" orientation="horizontal"
+					type="bar">
+					<field name="name" />
+					<field name="km" />
+				</graph>
+			</field>
+		</record>
+
+
+
+
+
+
+		<record id="act_servicio" model="ir.actions.act_window">
+			<field name="name">Servicio</field>
+			<field name="res_model">servicio</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree,graph</field>
+		</record>
+		<menuitem id="servicio_menu" parent="gestionAlquiler" name="Servicio"
+			action="act_conductor" sequence="100" />
+		<menuitem name="Ver Servicios" id="servicio_submenu" parent="servicio_menu"
+			sequence="110" action="act_servicio" />
+	</data>
 </openerp>

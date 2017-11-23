@@ -28,15 +28,15 @@
             </field>
         </record>
         <record id="act_apuntes" model="ir.actions.act_window">
-            <field name="name">apuntes</field>
+            <field name="name">Apuntes</field>
             <field name="res_model">apuntes</field>
             <field name="view_type">form</field>
             <field name="view_mode">form,tree</field>
         </record>
         <menuitem id="gestionApuntes" name="Gestion Economica"
-            action="act_apuntes" />
+            action="act_apuntes" sequence="130"/>
         <menuitem id="apuntes_menu" parent="gestionApuntes" name="Apuntes"
-            action="act_apuntes" sequence="100" />
+            action="act_apuntes" sequence="110" />
         <menuitem name="Ver Apuntes" id="apuntes_submenu" parent="apuntes_menu"
             sequence="110" action="act_apuntes" />
     </data>

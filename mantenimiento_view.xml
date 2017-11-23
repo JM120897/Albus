@@ -34,7 +34,7 @@
             </field>
         </record>
         <menuitem id="mantenimiento_menu" parent="garaje" name="Mantenimiento"
-            action="act_mantenimiento" sequence="100"/>
+            action="act_mantenimiento" sequence="110"/>
         <menuitem name="Ver Mantenimientos" id="mantenimiento_submenu"
             parent="mantenimiento_menu" sequence="110" action="act_mantenimiento" />
 

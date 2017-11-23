@@ -1,52 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
-    <data>
-        <record id="view_vacaciones_form" model="ir.ui.view">
-            <field name="name">view_vacaciones_form</field>
-            <field name="model">vacaciones</field>
-            <field name="type">form</field>
-            <field name="arch" type="xml">
-                <form string="tree_string">
-                    <field name="name" />
-                    <field name="conductor_id"/>
-                    <field name="fechaIni" />
-                    <field name="fechaFin" />
-                </form>
-            </field>
-        </record>
-        <record id="view_vacaciones_tree" model="ir.ui.view">
-            <field name="name">view_vacaciones_tree</field>
-            <field name="model">vacaciones</field>
-            <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <tree string="tree_string">
-                    <field name="name" />
-                    <field name="conductor_id"/>
-                    <field name="fechaIni" />
-                    <field name="fechaFin" />
-                </tree>
-            </field>
-        </record>
-        <record model="ir.ui.view" id="view_vacaciones_calendar">
- 			<field name="name">view_vacaciones_calendar</field>
+	<data>
+		<record id="view_vacaciones_form" model="ir.ui.view">
+			<field name="name">view_vacaciones_form</field>
 			<field name="model">vacaciones</field>
- 			<field name="type">calendar</field>
- 			<field name="arch" type="xml">
- 				<calendar string="Calendario" color="conductor_id" date_start="fechaIni" date_stop="fechaFin">
- 					<field name="name"/>
- 				</calendar>
- 			</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="tree_string">
+					<field name="fechaIni" />
+					<field name="fechaFin" />
+					<field name="name" />
+				</form>
+			</field>
 		</record>
-        <record id="act_vacaciones" model="ir.actions.act_window">
-            <field name="name">vacaciones</field>
-            <field name="res_model">vacaciones</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">form,tree,calendar</field>
-        </record>
+		<record id="view_vacaciones_tree" model="ir.ui.view">
+			<field name="name">view_vacaciones_tree</field>
+			<field name="model">vacaciones</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="fechaIni" />
+					<field name="fechaFin" />
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_vacaciones_calendar">
+			<field name="name">view_vacaciones_calendar</field>
+			<field name="model">vacaciones</field>
+			<field name="type">calendar</field>
+			<field name="arch" type="xml">
+				<calendar string="Calendario" color="conductor_id"
+					date_start="fechaIni" date_stop="fechaFin">
+					<field name="name" />
+				</calendar>
+			</field>
+		</record>
+		<record id="act_vacaciones" model="ir.actions.act_window">
+			<field name="name">Vacaciones</field>
+			<field name="res_model">vacaciones</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree,calendar</field>
+		</record>
 
-        <menuitem id="vacaciones_menu" parent="gestionConductor" name="Vacaciones"
-            action="act_vacaciones" sequence="100" />
-        <menuitem name="Ver Vacaciones" id="vacaciones_submenu" parent="vacaciones_menu"
-            sequence="110" action="act_vacaciones" />
-    </data>
+		<menuitem id="vacaciones_menu" parent="gestionConductor"
+			name="Vacaciones" action="act_vacaciones" sequence="100" />
+		<menuitem name="Ver Vacaciones" id="vacaciones_submenu"
+			parent="vacaciones_menu" sequence="110" action="act_vacaciones" />
+	</data>
 </openerp>
