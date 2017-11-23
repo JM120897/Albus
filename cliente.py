@@ -33,6 +33,7 @@ class cliente(osv.Model):
         'apellidos':fields.char('Apellidos', size=64, required=True, readonly=False),
         'telefono':fields.integer('Telefono', required=True),
         'correo':fields.char('Correo', size=64, required=True, readonly=False),
+        'alquiler_id':fields.one2many("alquiler","cliente_id","Alquileres")
            
             
         }
