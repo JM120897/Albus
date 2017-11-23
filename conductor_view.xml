@@ -13,8 +13,7 @@
                     <field name="sexo" />
                     <field name="telefono" />
                     <field name="correo" />
-                    <field name="direccion" />
-                    <field name="cuentaCorriente" />
+                    <field name="direccion" /> 
                     <field name="servicio_id" />
                 </form>
             </field>
@@ -32,7 +31,6 @@
                     <field name="telefono" />
                     <field name="correo" />
                     <field name="direccion" />
-                    <field name="cuentaCorriente" />
                     <field name="servicio_id" />
                 </tree>
             </field>
