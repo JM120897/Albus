@@ -3,7 +3,7 @@
     <data>
         <record id="view_conductor_form" model="ir.ui.view">
             <field name="name">view_conductor_form</field>
-            <field name="model">alquiler</field>
+            <field name="model">conductor</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="tree_string">
