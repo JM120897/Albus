@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_cuenta_form" model="ir.ui.view">
+            <field name="name">view_cuenta_form</field>
+            <field name="model">cuenta</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="tree_string">
+                    <field name="name" />
+                    <field name="banco" />
+                </form>
+            </field>
+        </record>
+        <record id="view_cuenta_tree" model="ir.ui.view">
+            <field name="name">view_cuenta_tree</field>
+            <field name="model">cuenta</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="tree_string">
+                    <field name="name" />
+                    <field name="banco" />
+                </tree>
+            </field>
+        </record>
+        <record id="act_cuenta" model="ir.actions.act_window">
+            <field name="name">cuenta</field>
+            <field name="res_model">cuenta</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+        </record>
+        <menuitem id="gestionCuenta" name="Gestion Cuenta"
+            action="act_cuenta" />
+        <menuitem id="cuenta_menu" parent="gestionCuenta" name="Cuenta"
+            action="act_cuenta" sequence="100" />
+        <menuitem name="Ver Cuenta" id="cuenta_submenu" parent="cuenta_menu"
+            sequence="110" action="act_cuenta" />
+    </data>
+</openerp>

@@ -19,13 +19,18 @@
 #    along with this program.  If not, see http://www.gnu.org/licenses/.
 #
 ##############################################################################
+from osv import osv
+from osv import fields
 
-import autobus
-import mantemiento
-import alquiler
-import conductor
-import servicio
-import vacaciones
-import apuntes
-import cuenta
-import cliente
+class cuenta(osv.Model):
+
+    _name = 'cuenta'
+    _description = 'Informacion sobre cuenta'
+ 
+    _columns = {
+         'name':fields.integer('Numero Cuenta', required=True),
+            'banco':fields.char('Banco', size=64, required=True, readonly=False),
+           
+            
+        }
+cuenta()
