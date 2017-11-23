@@ -1,1 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_conductor_form" model="ir.ui.view">
+            <field name="name">view_conductor_form</field>
+            <field name="model">alquiler</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="tree_string">
+                    <field name="name" />
+                    <field name="nombre" />
+                    <field name="apellidos" />
+                    <field name="sexo" />
+                    <field name="telefono" />
+                    <field name="correo" />
+                    <field name="direccion" />
+                    <field name="cuentaCorriente" />
+                    <field name="servicio_id" />
+                </form>
+            </field>
+        </record>
+        <record id="view_conductor_tree" model="ir.ui.view">
+            <field name="name">view_conductor_tree</field>
+            <field name="model">conductor</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="tree_string">
+                    <field name="name" />
+                    <field name="nombre" />
+                    <field name="apellidos" />
+                    <field name="sexo" />
+                    <field name="telefono" />
+                    <field name="correo" />
+                    <field name="direccion" />
+                    <field name="cuentaCorriente" />
+                    <field name="servicio_id" />
+                </tree>
+            </field>
+        </record>
+        <record id="act_conductor" model="ir.actions.act_window">
+            <field name="name">conductor</field>
+            <field name="res_model">conductor</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+        </record>
+        <menuitem id="gestionConductor" name="Gestion Conductores"
+            action="act_conductor" />
+        <menuitem id="conductor_menu" parent="gestionConductor" name="Conductor"
+            action="act_conductor" sequence="100" />
+        <menuitem name="Ver Conductores" id="conductor_submenu" parent="conductor_menu"
+            sequence="110" action="act_conductor" />
+    </data>
+</openerp>
