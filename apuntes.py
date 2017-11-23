@@ -33,6 +33,7 @@ class apuntes(osv.Model):
             'importe':fields.float('Importe',required=True),
             'fechaVen':fields.date('Fecha Vencimiento', required=False, readonly=False),
             'estado':fields.boolean('Estado'), 
+            'cuenta_id':fields.many2one("cuenta","Cuenta")
             
         }
 apuntes()

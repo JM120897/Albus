@@ -33,7 +33,8 @@ class cliente(osv.Model):
         'apellidos':fields.char('Apellidos', size=64, required=True, readonly=False),
         'telefono':fields.integer('Telefono', required=True),
         'correo':fields.char('Correo', size=64, required=True, readonly=False),
-        'alquiler_id':fields.one2many("alquiler","cliente_id","Alquileres")
+        'alquiler_id':fields.one2many("alquiler","cliente_id","Alquileres"),
+        'cuenta_id':fields.many2many('cuenta','cuenta_cliente_rel','cliente_id','cuenta_id','Cuentas'),
            
             
         }
