@@ -20,10 +20,19 @@
 #
 ##############################################################################
 
-import autobus
-import mantemiento
-import alquiler
-import conductor
-import servicio
-import vacaciones
-import apuntes
+from osv import osv
+from osv import fields
+
+class apuntes(osv.Model):
+
+    _name = 'apuntes'
+    _description = 'Informacion sobre los alquileres'
+ 
+    _columns = {
+            'name':fields.char('Asunto', size=64, required=True, readonly=False),
+            'importe':fields.float('Importe',required=True),
+            'fechaVen':fields.date('Fecha Vencimiento', required=False, readonly=False),
+            'estado':fields.boolean('Estado'), 
+            
+        }
+apuntes()
