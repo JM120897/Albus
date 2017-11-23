@@ -32,7 +32,7 @@
             <field name="view_mode">form,tree</field>
         </record>
 
-        <menuitem id="vacaciones_menu" parent="gestionConductores" name="Vacaciones"
+        <menuitem id="vacaciones_menu" parent="gestionConductor" name="Vacaciones"
             action="act_vacaciones" sequence="100" />
         <menuitem name="Ver Vacaciones" id="vacaciones_submenu" parent="vacaciones_menu"
             sequence="110" action="act_vacaciones" />
