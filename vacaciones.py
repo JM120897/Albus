@@ -32,6 +32,7 @@ class vacaciones(osv.Model):
             'name':fields.char('Descripcion', size=150, required=False, readonly=False),
             'fechaIni':fields.date('Fecha Inicio', required=False, readonly=False),
             'fechaFin':fields.date('Fecha Fin', required=False, readonly=False),
+            'conductor_id':fields.many2many('conductor','conductor_vacaciones_rel','vacacion_id','conductor_id','Conductores')
            
           
             
