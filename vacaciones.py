@@ -20,9 +20,20 @@
 #
 ##############################################################################
 
-import autobus
-import mantemiento
-import alquiler
-import conductor
-import servicio
-import vacaciones
+from osv import osv
+from osv import fields
+
+class vacaciones(osv.Model):
+
+    _name = 'vacaciones'
+    _description = 'Informacion sobre los vacaciones'
+ 
+    _columns = {
+            'name':fields.char('Descripcion', size=150, required=False, readonly=False),
+            'fechaIni':fields.date('Fecha Inicio', required=False, readonly=False),
+            'fechaFin':fields.date('Fecha Fin', required=False, readonly=False),
+           
+          
+            
+        }
+vacaciones()
