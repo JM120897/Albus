@@ -6,7 +6,7 @@
 			<field name="model">servicio</field>
 			<field name="type">form</field>
 			<field name="arch" type="xml">
-				<form string="tree_string">
+				<form string="form_string">
 					<field name="name" />
 					<field name="descripcion" />
 					<field name="matricula_id" />

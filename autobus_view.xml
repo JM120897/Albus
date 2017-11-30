@@ -19,7 +19,7 @@
 					<field name="consumo" />
 					<field name="revisado" />
 					<field name="mantenimiento_id">
-						<tree string="uvuvwevwevwe">
+						<tree string="form_string">
 							<field name="fecha" />
 							<field name="precio" />
 							<field name="name" />

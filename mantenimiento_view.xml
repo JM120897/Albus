@@ -12,7 +12,7 @@
             <field name="model">mantenimiento</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                <form string="tree_string">
+                <form string="form_string">
                     <field name="fecha" />
                     <field name="precio" />
                     <field name="name" />

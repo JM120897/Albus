@@ -6,7 +6,7 @@
             <field name="model">cliente</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                <form string="tree_string">
+                <form string="form_string">
                     <field name="name" />
                   	<field name="telefono" />
                    	<field name="nombre" />

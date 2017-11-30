@@ -31,7 +31,8 @@ class cuenta(osv.Model):
                 'name':fields.integer('Numero Cuenta', required=True),
                 'banco':fields.char('Banco', size=64, required=True, readonly=False),
                 'saldo':fields.float('Saldo'),
-           
-            
+                'apuntes_id':fields.one2many('apuntes','cuenta_id','Apuntes'),
+                'cliente_id':fields.many2many('cliente','cuenta_cliente_rel','cuenta_id','cliente_id','Clientes'),
+                'conductor_id':fields.many2one('conductor','Conductor')
         }
 cuenta()

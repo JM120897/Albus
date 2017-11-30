@@ -6,7 +6,7 @@
 			<field name="model">vacaciones</field>
 			<field name="type">form</field>
 			<field name="arch" type="xml">
-				<form string="tree_string">
+				<form string="form_string">
 					<field name="fechaIni" />
 					<field name="fechaFin" />
 					<field name="name" />

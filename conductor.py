@@ -37,6 +37,7 @@ class conductor(osv.Model):
             'correo':fields.char('Correo', size=64, required=False, readonly=False),
             'direccion':fields.char('Direccion', size=64, required=False, readonly=False),
             'servicio_id':fields.one2many("servicio","conductor_id","Servicios"),
+            'cuenta_id':fields.many2one('cuenta','Cuentas'),
             'vacacion_id':fields.many2many("vacaciones",'conductor_vacaciones_rel','conductor_id','vacacion_id','Vacaciones')
         }
 conductor()
