@@ -40,11 +40,23 @@
 				</tree>
 			</field>
 		</record>
+		<record model="ir.ui.view" id="view_conductor_search">
+			<field name="name">view_conductor_search</field>
+			<field name="model">conductor</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="conductor_search">
+					<field name="apellidos" />
+					<separator orientation="vertical" />
+				</search>
+			</field>
+		</record>
 		<record id="act_conductor" model="ir.actions.act_window">
 			<field name="name">Conductor</field>
 			<field name="res_model">conductor</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">form,tree</field>
+			<field name="search_view_id" ref="view_conductor_search" />
 		</record>
 		<menuitem id="gestionConductor" name="Gestion Conductores"
 			action="act_conductor" sequence="120"/>

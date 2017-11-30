@@ -25,13 +25,24 @@
 			<field name="arch" type="xml">
 				<tree string="tree_string">
 					<field name="name" />
+					<field name="descripcion" />
 					<field name="horas" />
 					<field name="fecha" />
 					<field name="numPersonas" />
 					<field name="lugarOrigen" />
 					<field name="lugarDestino" />
-					<field name="descripcion" />
 				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_alquiler_search">
+			<field name="name">view_alquiler_search</field>
+			<field name="model">alquiler</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="alquiler_search">
+					<field name="descripcion" />
+					<separator orientation="vertical" />
+				</search>
 			</field>
 		</record>
 		<record id="act_alquiler" model="ir.actions.act_window">
@@ -41,7 +52,7 @@
 			<field name="view_mode">form,tree</field>
 		</record>
 		<menuitem id="gestionAlquiler" name="Gestion Alquileres"
-			action="act_alquiler" sequence="100"/>
+			action="act_alquiler" sequence="100" />
 		<menuitem id="alquiler_menu" parent="gestionAlquiler" name="Alquiler"
 			action="act_alquiler" sequence="100" />
 		<menuitem name="Ver Alquileres" id="alquiler_submenu" parent="alquiler_menu"

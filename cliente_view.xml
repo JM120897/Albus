@@ -29,6 +29,17 @@
                 </tree>
             </field>
         </record>
+		<record model="ir.ui.view" id="view_cliente_search">
+			<field name="name">view_cliente_search</field>
+			<field name="model">cliente</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="cliente_search">
+					<field name="apellidos" />
+					<separator orientation="vertical" />
+				</search>
+			</field>
+		</record>
         <record id="act_cliente" model="ir.actions.act_window">
             <field name="name">Cliente</field>
             <field name="res_model">cliente</field>

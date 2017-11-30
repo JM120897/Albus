@@ -25,11 +25,23 @@
 				</tree>
 			</field>
 		</record>
+		<record model="ir.ui.view" id="view_cuenta_search">
+			<field name="name">view_cuenta_search</field>
+			<field name="model">cuenta</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="cuenta_search">
+					<filter string="Saldo > 50" domain="[('saldo','&gt;',50)" />
+					<separator orientation="vertical" />
+				</search>
+			</field>
+		</record>
 		<record id="act_cuenta" model="ir.actions.act_window">
 			<field name="name">Cuenta</field>
 			<field name="res_model">cuenta</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">form,tree</field>
+			<field name="search_view_id" ref="view_cuenta_search" />
 		</record>
 		<menuitem id="cuenta_menu" parent="gestionApuntes" name="Cuenta"
 			action="act_cuenta" sequence="100" />

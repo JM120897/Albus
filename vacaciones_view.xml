@@ -10,6 +10,7 @@
 					<field name="fechaIni" />
 					<field name="fechaFin" />
 					<field name="name" />
+					<field name="descripcion" />
 				</form>
 			</field>
 		</record>
@@ -22,6 +23,7 @@
 					<field name="fechaIni" />
 					<field name="fechaFin" />
 					<field name="name" />
+					<field name="descripcion" />
 				</tree>
 			</field>
 		</record>
@@ -33,7 +35,19 @@
 				<calendar string="Calendario" color="conductor_id"
 					date_start="fechaIni" date_stop="fechaFin">
 					<field name="name" />
+					<field name="descripcion" />
 				</calendar>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_vacaciones_search">
+			<field name="name">view_vacaciones_search</field>
+			<field name="model">vacaciones</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="vacaciones_search">
+					<field name="descripcion" />
+					<separator orientation="vertical" />
+				</search>
 			</field>
 		</record>
 		<record id="act_vacaciones" model="ir.actions.act_window">
@@ -41,6 +55,7 @@
 			<field name="res_model">vacaciones</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">form,tree,calendar</field>
+			<field name="search_view_id" ref="view_vacaciones_search" />
 		</record>
 
 		<menuitem id="vacaciones_menu" parent="gestionConductor"

@@ -43,17 +43,23 @@
 				</graph>
 			</field>
 		</record>
-
-
-
-
-
-
+		<record model="ir.ui.view" id="view_servicio_search">
+			<field name="name">view_servicio_search</field>
+			<field name="model">servicio</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="servicio_search">
+					<field name="descripcion" />
+					<separator orientation="vertical" />
+				</search>
+			</field>
+		</record>
 		<record id="act_servicio" model="ir.actions.act_window">
 			<field name="name">Servicio</field>
 			<field name="res_model">servicio</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">form,tree,graph</field>
+			<field name="search_view_id" ref="view_servicio_search" />
 		</record>
 		<menuitem id="servicio_menu" parent="gestionAlquiler" name="Servicio"
 			action="act_conductor" sequence="100" />
