@@ -45,6 +45,7 @@
 			<field name="type">search</field>
 			<field name="arch" type="xml">
 				<search string="vacaciones_search">
+					<field name="name" />
 					<field name="descripcion" />
 					<separator orientation="vertical" />
 				</search>

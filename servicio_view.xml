@@ -49,7 +49,11 @@
 			<field name="type">search</field>
 			<field name="arch" type="xml">
 				<search string="servicio_search">
+					<field name="name" />
 					<field name="descripcion" />
+					<field name="matricula_id" />
+					<field name="conductor_id" />
+					<field name="alquiler_id" />
 					<separator orientation="vertical" />
 				</search>
 			</field>

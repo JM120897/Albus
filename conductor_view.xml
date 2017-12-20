@@ -46,6 +46,8 @@
 			<field name="type">search</field>
 			<field name="arch" type="xml">
 				<search string="conductor_search">
+					<field name="name" />
+					<field name="nombre" />
 					<field name="apellidos" />
 					<separator orientation="vertical" />
 				</search>

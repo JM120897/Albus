@@ -27,11 +27,26 @@
                 </tree>
             </field>
         </record>
+        <record model="ir.ui.view" id="view_apuntes_search">
+			<field name="name">view_apuntes_search</field>
+			<field name="model">apuntes</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="mantenimiento_search">
+					<filter string="Importe > 100" domain="[('importe','&gt;',100)]" />
+					<filter string="No pagados" domain="[('estado','=',0)]" />
+					<field name="name" />
+					<field name="importe" />
+					<separator orientation="vertical" />
+				</search>
+			</field>
+		</record>
         <record id="act_apuntes" model="ir.actions.act_window">
             <field name="name">Apuntes</field>
             <field name="res_model">apuntes</field>
             <field name="view_type">form</field>
             <field name="view_mode">form,tree</field>
+            <field name="search_view_id" ref="view_apuntes_search" />
         </record>
         <menuitem id="gestionApuntes" name="Gestion Economica"
             action="act_apuntes" sequence="130"/>
