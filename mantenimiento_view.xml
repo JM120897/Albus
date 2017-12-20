@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
     <data>
-        <record id="act_mantenimiento" model="ir.actions.act_window">
-            <field name="name">Mantenimiento</field>
-            <field name="res_model">mantenimiento</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">form,tree</field>
-        </record>
         <record id="view_garaje_mantenimiento_form" model="ir.ui.view">
             <field name="name">view_mantenimiento_form</field>
             <field name="model">mantenimiento</field>
@@ -32,6 +26,26 @@
                     <field name="matricula_id" />
                 </tree>
             </field>
+        </record>
+        <record model="ir.ui.view" id="view_mantenimiento_search">
+			<field name="name">view_mantenimiento_search</field>
+			<field name="model">mantenimiento</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="mantenimiento_search">
+					<filter string="Precio > 100" domain="[('precio','&gt;',100)]" />
+					<field name="name" />
+					<field name="matricula_id" />
+					<separator orientation="vertical" />
+				</search>
+			</field>
+		</record>
+		<record id="act_mantenimiento" model="ir.actions.act_window">
+            <field name="name">Mantenimiento</field>
+            <field name="res_model">mantenimiento</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+            <field name="search_view_id" ref="view_mantenimiento_search" />
         </record>
         <menuitem id="mantenimiento_menu" parent="garaje" name="Mantenimiento"
             action="act_mantenimiento" sequence="110"/>

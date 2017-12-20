@@ -35,7 +35,11 @@
 			<field name="type">search</field>
 			<field name="arch" type="xml">
 				<search string="cliente_search">
+					<field name="name" />
+					<field name="nombre" />
 					<field name="apellidos" />
+					<field name="telefono" />
+					<field name="correo" />
 					<separator orientation="vertical" />
 				</search>
 			</field>
@@ -45,6 +49,7 @@
             <field name="res_model">cliente</field>
             <field name="view_type">form</field>
             <field name="view_mode">form,tree</field>
+            <field name="search_view_id" ref="view_cliente_search" />
         </record>
         <menuitem id="cliente_menu" parent="gestionAlquiler" name="Cliente"
             action="act_cliente" sequence="100" />

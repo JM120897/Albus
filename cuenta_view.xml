@@ -9,7 +9,6 @@
 				<form string="form_string">
 					<field name="name" />
 					<field name="banco" />
-					<field name="saldo" />
 				</form>
 			</field>
 		</record>
@@ -21,7 +20,6 @@
 				<tree string="tree_string">
 					<field name="name" />
 					<field name="banco" />
-					<field name="saldo" />
 				</tree>
 			</field>
 		</record>
@@ -31,7 +29,9 @@
 			<field name="type">search</field>
 			<field name="arch" type="xml">
 				<search string="cuenta_search">
-					<filter string="Saldo > 50" domain="[('saldo','&gt;',50)" />
+					<!--<filter string="Saldo > 50" domain="[('saldo','&gt;',50)" />-->
+					<field name="name" />
+					<field name="banco" />
 					<separator orientation="vertical" />
 				</search>
 			</field>

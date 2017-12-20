@@ -40,7 +40,11 @@
 			<field name="type">search</field>
 			<field name="arch" type="xml">
 				<search string="alquiler_search">
+					<field name="name" />
 					<field name="descripcion" />
+					<field name="fecha" />
+					<field name="lugarOrigen" />
+					<field name="lugarDestino" />
 					<separator orientation="vertical" />
 				</search>
 			</field>
