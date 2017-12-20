@@ -10,6 +10,7 @@
 					<field name="name" />
 					<field name="descripcion" />
 					<field name="matricula_id" />
+					<field name="alquiler_id" />
 					<field name="conductor_id" />
 					<field name="km" />
 				</form>

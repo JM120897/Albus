@@ -14,7 +14,9 @@
 					<field name="lugarOrigen" />
 					<field name="lugarDestino" />
 					<field name="descripcion" />
+					<field name="cliente_id" />
 					<field name="servicio_id" />
+					<field name="apuntes_id" />
 				</form>
 			</field>
 		</record>
@@ -31,6 +33,9 @@
 					<field name="numPersonas" />
 					<field name="lugarOrigen" />
 					<field name="lugarDestino" />
+					<field name="cliente_id" />
+					<field name="servicio_id" />
+					<field name="apuntes_id" />
 				</tree>
 			</field>
 		</record>

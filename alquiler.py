@@ -37,6 +37,7 @@ class alquiler(osv.Model):
             'lugarOrigen':fields.char('Lugar de Origen', size=64, required=False, readonly=False),
             'lugarDestino':fields.char('Lugar de Destino', size=64, required=False, readonly=False),
             'servicio_id':fields.one2many('servicio','alquiler_id','Servicios'),
+            'apuntes_id':fields.one2many('apuntes','alquiler_id','Apuntes'),
             'cliente_id':fields.many2one('cliente','Cliente'),
             
         }

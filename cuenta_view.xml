@@ -29,7 +29,6 @@
 			<field name="type">search</field>
 			<field name="arch" type="xml">
 				<search string="cuenta_search">
-					<!--<filter string="Saldo > 50" domain="[('saldo','&gt;',50)" />-->
 					<field name="name" />
 					<field name="banco" />
 					<separator orientation="vertical" />

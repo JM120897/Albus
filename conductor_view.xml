@@ -12,6 +12,7 @@
 						<field name="nombre" />
 						<field name="telefono" />
 						<field name="correo" />
+						<field name="cuenta_id" />
 						<field name="servicio_id" />
 					</group>
 					<group col="2" colspan="2">
@@ -36,7 +37,9 @@
 					<field name="telefono" />
 					<field name="correo" />
 					<field name="direccion" />
+					<field name="cuenta_id" />
 					<field name="servicio_id" />
+					<field name="vacacion_id" />
 				</tree>
 			</field>
 		</record>
