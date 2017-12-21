@@ -58,7 +58,6 @@
 			<field name="view_mode">form,tree,calendar</field>
 			<field name="search_view_id" ref="view_vacaciones_search" />
 		</record>
-
 		<menuitem id="vacaciones_menu" parent="gestionConductor"
 			name="Vacaciones" action="act_vacaciones" sequence="100" />
 		<menuitem name="Ver Vacaciones" id="vacaciones_submenu"

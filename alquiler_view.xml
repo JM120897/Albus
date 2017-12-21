@@ -54,11 +54,25 @@
 				</search>
 			</field>
 		</record>
+		<record model="ir.ui.view" id="view_alquiler_gantt">
+			<field name="name">view_alquiler_gantt</field>
+			<field name="model">alquiler</field>
+			<field name="type">gantt</field>
+			<field name="arch" type="xml">
+				<gantt color="alquiler_id" date_delay="horas" date_start="fecha"
+					string="Alquileres">
+					<level object="albus.servicio" link="servicio_id" domain="[]">
+						<field name="name" />
+					</level>
+				</gantt>
+			</field>
+		</record>
 		<record id="act_alquiler" model="ir.actions.act_window">
 			<field name="name">Alquiler</field>
 			<field name="res_model">alquiler</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">form,tree</field>
+			<field name="view_mode">form,tree,gantt</field>
+			<field name="search_view_id" ref="view_alquiler_search" />
 		</record>
 		<menuitem id="gestionAlquiler" name="Gestion Alquileres"
 			action="act_alquiler" sequence="100" />
