@@ -40,4 +40,7 @@ class conductor(osv.Model):
             'cuenta_id':fields.many2one('cuenta','Cuentas'),
             'vacacion_id':fields.many2many("vacaciones",'conductor_vacaciones_rel','conductor_id','vacacion_id','Vacaciones')
         }
+    
+    _sql_constraints = [('cuenta_uniq', 'unique (cuenta_id)', 'Esa cuenta corriente pertence a otro conductor'),]
+    
 conductor()
