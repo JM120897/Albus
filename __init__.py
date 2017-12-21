@@ -21,7 +21,7 @@
 ##############################################################################
 
 import autobus
-import mantemiento
+import mantenimiento
 import servicio
 
 import conductor

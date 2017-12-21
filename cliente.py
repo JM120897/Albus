@@ -28,11 +28,11 @@ class cliente(osv.Model):
     _description = 'Informacion sobre Cliente'
  
     _columns = {
-        'name':fields.char('ID', size=64, required=True, readonly=False),
-        'nombre':fields.char('Nombre', size=64, required=True, readonly=False),
-        'apellidos':fields.char('Apellidos', size=64, required=True, readonly=False),
+        'name':fields.char('DNI', size=9, required=True, readonly=False),
+        'nombre':fields.char('Nombre', size=100, required=True, readonly=False),
+        'apellidos':fields.char('Apellidos', size=100, required=True, readonly=False),
         'telefono':fields.integer('Telefono', required=True),
-        'correo':fields.char('Correo', size=64, required=True, readonly=False),
+        'correo':fields.char('Correo', size=100, required=True, readonly=False),
         'cuenta_id':fields.many2many('cuenta','cuenta_cliente_rel','cliente_id','cuenta_id','Cuentas'),
         'alquiler_id':fields.one2many("alquiler","cliente_id","Alquileres")
         }

@@ -29,13 +29,13 @@ class alquiler(osv.Model):
     _description = 'Informacion sobre los alquileres'
  
     _columns = {
-            'name':fields.char('ID', size=64, required=True, readonly=False),
+            'name':fields.char('ID', size=100, required=True, readonly=False),
             'horas':fields.integer('Horas de alquiler',required=False, readonly=False),
             'fecha':fields.date('Fecha', required=False, readonly=False),
             'numPersonas':fields.integer('Numero de personas',required=False, readonly=False),
-            'descripcion':fields.char('Descripcion', size=150, required=False, readonly=False),
-            'lugarOrigen':fields.char('Lugar de Origen', size=64, required=False, readonly=False),
-            'lugarDestino':fields.char('Lugar de Destino', size=64, required=False, readonly=False),
+            'descripcion':fields.text('Descripcion'),
+            'lugarOrigen':fields.char('Lugar de Origen', size=100, required=False, readonly=False),
+            'lugarDestino':fields.char('Lugar de Destino', size=100, required=False, readonly=False),
             'servicio_id':fields.one2many('servicio','alquiler_id','Servicios'),
             'apuntes_id':fields.one2many('apuntes','alquiler_id','Apuntes'),
             'cliente_id':fields.many2one('cliente','Cliente'),

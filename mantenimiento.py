@@ -27,7 +27,7 @@ class mantenimiento(osv.Model):
     _description = 'Clase para el mantenimiento de un autobus'
  
     _columns = {
-            'name':fields.char('Descripcion', size=64, required=False, readonly=False),
+            'name':fields.text('Descripcion'),
             'precio':fields.float('Precio', required=True),
             'fecha':fields.date('Fecha', required=True),
             'matricula_id':fields.many2one("autobus","Matricula"),
