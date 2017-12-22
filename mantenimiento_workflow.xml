@@ -20,7 +20,7 @@
 			<field name="wkf_id" ref="wkf_mantenimiento" />
 			<field name="name">En mantenimiento</field>
 			<field name="kind">function</field>
-			<field name="action">write({'state':'admitido'})</field>
+			<field name="action">write({'state':'enmante'})</field>
 		</record>
 
 		<record id="act_user_finalizado" model="workflow.activity">
@@ -28,7 +28,7 @@
 			<field name="name">Cancelado</field>
 			<field name="flow_stop">True</field>
 			<field name="kind">function</field>
-			<field name="action">write({'state':'cancelado'})</field>
+			<field name="action">write({'state':'finalizado'})</field>
 		</record>
 
 		<!-- Declaración de las transiciones -->

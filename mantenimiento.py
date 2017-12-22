@@ -40,7 +40,12 @@ class mantenimiento(osv.Model):
             'precio':fields.float('Precio', required=True),
             'fecha':fields.date('Fecha', required=True),
             'matricula_id':fields.many2one("autobus","Matricula"),
+            'state':fields.selection([
+                ('solicitado','Solicitado'),
+                ('enmante','enMantenimiento'),
+                ('finalizado','finalizado')], 'Estado', readonly=True, default='solicitado'),
         }
+
 
     _constraints = [(_check_precio, 'El precio del mantenimiento no puede ser menor de 0' , [ 'precio'])]
 mantenimiento()
