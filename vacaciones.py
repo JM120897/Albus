@@ -25,15 +25,16 @@ from osv import fields
 
 class vacaciones(osv.Model):
 
+    def _check_dates(self, cr, uid, ids):
+        # Los servicios tienen que tener almenos 0.1 KM para poder registrarse
+        fecha=self.browse(cr, uid, ids[0],context=None)
+        if fecha.fechaIni == fecha.fechaFin:
+            return False
+        return True
+
     _name = 'vacaciones'
     _description = 'Informacion sobre los vacaciones'
 
-        def _check_dates(self, cr, uid, ids):
-            # Los servicios tienen que tener almenos 0.1 KM para poder registrarse
-            fecha=self.browse(cr, uid, ids[0],context=None)
-            if fecha.fechaIni == fecha.fechaFin:
-                return False
-            return True
 
 
     _columns = {
@@ -44,5 +45,5 @@ class vacaciones(osv.Model):
             'conductor_id':fields.many2many('conductor','conductor_vacaciones_rel','vacacion_id','conductor_id','Conductores')
         }
 
-    _constraints = [(_check_dates, 'Las vacaciones no pueden empezar y terminar el mismo dia' )]
+    _constraints = [(_check_dates, 'Las vacaciones no pueden empezar y terminar el mismo dia', ['fechaIni'] )]
 vacaciones()
