@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<!-- Declaración del workflow -->
+		<record id="wkf_mantenimiento" model="workflow">
+			<field name="name">mante_workflow</field>
+			<field name="osv">mantenimiento</field>
+			<field name="on_create">True</field>
+		</record>
+
+		<!-- Declaración de nodos -->
+		<record id="act_user_solicitado" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_mantenimiento" />
+			<field name="flow_start">True</field>
+			<field name="name">Solicitado</field>
+			<field name="kind">dummy</field>
+		</record>
+
+		<record id="act_user_enmante" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_mantenimiento" />
+			<field name="name">En mantenimiento</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'admitido'})</field>
+		</record>
+
+		<record id="act_user_finalizado" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_mantenimiento" />
+			<field name="name">Cancelado</field>
+			<field name="flow_stop">True</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'cancelado'})</field>
+		</record>
+
+		<!-- Declaración de las transiciones -->
+		<record id="trans_solicitante_enmante" model="workflow.transition">
+			<field name="act_from" ref="act_user_solicitado" />
+			<field name="act_to" ref="act_user_enmante" />
+			<field name="signal">admitir</field>
+		</record>
+
+		<record id="trans_admitido_cancelado" model="workflow.transition">
+			<field name="act_from" ref="act_user_enmante" />
+			<field name="act_to" ref="act_user_finalizado" />
+			<field name="signal">cancelar</field>
+		</record>
+
+	</data>
+</openerp>
