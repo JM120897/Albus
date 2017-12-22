@@ -3,7 +3,7 @@
 #
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2010 Tiny SPRL (http://tiny.be). All Rights Reserved
-#    
+#
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -25,9 +25,17 @@ from osv import fields
 
 class servicio(osv.Model):
 
+    def _check_kilometers(self, cr, uid, ids):
+        # No puede haber clases con capacidad negativa o superior a 50
+        serv=self.browse(cr, uid, ids):
+        if serv.km <= 0:
+            return False
+        return True
+
+
     _name = 'servicio'
     _description = 'Informacion sobre el servicio'
- 
+
     _columns = {
             'name':fields.char('ID', size=64, required=True, readonly=False),
             'descripcion':fields.text('Descripcion'),
@@ -36,4 +44,7 @@ class servicio(osv.Model):
             'conductor_id':fields.many2one("conductor","Conductor"),
             'alquiler_id':fields.many2one("alquiler","Alquiler"),
         }
+
+    _constraints = [(_check_kilometers, 'Kilometro no pueden ser negativos' , [ 'km'])]
+
 servicio()
