@@ -1,0 +1,38 @@
+<openerp>
+	<data>
+		<record id="alquiler_workflow" model="workflow">
+			<field name="name">alquiler_workflow</field>
+			<field name="osv">alquiler</field>
+			<field name="on_create">True</field>
+		</record>
+		<record id="alquiler_solicitado" model="workflow.activity">
+			<field name="flow_start">True</field>
+			<field name="wkf_id" ref="alquiler_workflow" />
+			<field name="name">is_solicitado</field>
+			<field name="kind">dummy</field>
+		</record>
+		<record id="alquiler_presupuestado" model="workflow.activity">
+			<field name="wkf_id" ref="alquiler_workflow" />
+			<field name="name">is_presupuestado</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'presupuestado'})</field>
+		</record>
+		<record id="alquiler_confirmado" model="workflow.activity">
+			<field name="wkf_id" ref="alquiler_workflow" />
+			<field name="flow_stop">True</field>
+			<field name="name">is_confirmado</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'presupuestado'})</field>
+		</record>
+		<record id="trans_solicitado_presupuestado" model="workflow.transition">
+			<field name="act_from" ref="alquiler_solicitado"/>
+			<field name="act_to" ref="alquiler_presupuestado"/>
+			<field name="signal">button_presupuestado</field>
+		</record>
+		<record id="trans_presupuestado_confirmado" model="workflow.transition">
+			<field name="act_from" ref="alquiler_presupuestado"/>
+			<field name="act_to" ref="alquiler_confirmado"/>
+			<field name="signal">button_confirmado</field>
+		</record>
+	</data>
+</openerp>

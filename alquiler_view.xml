@@ -17,6 +17,16 @@
 					<field name="cliente_id" />
 					<field name="servicio_id" />
 					<field name="apuntes_id" />
+					<separator string="Workflow" colspan="4" />
+					<field name="state" widget="statusbar"
+						statusbar_visible="solicitado,presupuestado,confirmado"
+						statusbar_colors='{"solicitado":"orange","presupuestado":"yellow","confirmado":"green"}' />
+					<group col="4" colspan="4">
+						<button name="button_presupuestado" states="solicitado"
+							string="Presupuestar" colspan="1" icon="gtk-apply" />
+						<button name="button_confirmado" states="presupuestado"
+							string="Confirmar" colspan="1" icon="gtk-apply" />
+					</group>
 				</form>
 			</field>
 		</record>
