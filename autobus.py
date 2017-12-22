@@ -3,7 +3,7 @@
 #
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2010 Tiny SPRL (http://tiny.be). All Rights Reserved
-#    
+#
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -24,9 +24,19 @@ from osv import fields
 
 class autobus(osv.Model):
 
+
+    def _check_asientos(self, cr, uid, ids):
+        # Los servicios tienen que tener almenos 0.1 KM para poder registrarse
+        bus=self.browse(cr, uid, ids[0],context=None)
+        if bus.numAsientos <= 0:
+            return False
+        return True
+
+
+
     _name = 'autobus'
     _description = 'Informacion sobre autobus'
- 
+
     _columns = {
             'name':fields.char('Matricula', size=8, required=True, readonly=False),
             'numAsientos':fields.integer('Numero de Plazas', required=True),
@@ -36,4 +46,9 @@ class autobus(osv.Model):
             'mantenimiento_id':fields.one2many("mantenimiento","matricula_id","Mantenimientos"),
             'servicio_id':fields.one2many("servicio","matricula_id","Servicios"),
         }
+
+
+    _constraints = [(_check_asientos, 'El numero de asientos no pueden ser negativos' , [ 'numAsientos'])]
+
+
 autobus()
