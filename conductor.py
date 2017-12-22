@@ -3,7 +3,7 @@
 #
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2010 Tiny SPRL (http://tiny.be). All Rights Reserved
-#    
+#
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@ class conductor(osv.Model):
 
     _name = 'conductor'
     _description = 'Informacion sobre los conductores'
- 
+
     _columns = {
             'name':fields.char('DNI', size=9, required=True, readonly=False),
             'nombre':fields.char('Nombre', size=100, required=False, readonly=False),
@@ -40,7 +40,8 @@ class conductor(osv.Model):
             'cuenta_id':fields.many2one('cuenta','Cuentas'),
             'vacacion_id':fields.many2many("vacaciones",'conductor_vacaciones_rel','conductor_id','vacacion_id','Vacaciones')
         }
-    
+
+    _sql_constraints = [('dni_uniq', 'unique (name_id)', 'Ya existe un usuario con ese DNI'),]
     _sql_constraints = [('cuenta_uniq', 'unique (cuenta_id)', 'Esa cuenta corriente pertence a otro conductor'),]
-    
+
 conductor()
