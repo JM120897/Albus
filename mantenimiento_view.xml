@@ -40,6 +40,13 @@
 				</search>
 			</field>
 		</record>
+
+    <separator string="Worfklow" colspan="4" />
+    <field name='state' widget='statusbar' statusbar_visible="solicitado,enmante,finalizado"
+    statusbar_colors='{"solicitado":"orange","enmante": "green","finalizado": "red"}'/>
+    <button name="admitir" states="solicitado" string="Admitir" colspan="1" icon="gtk-ok"/>
+    <button name="cancelar" states="enmante" string="Cancelar" colspan="1" icon="gtk-apply"/>
+
 		<record id="act_mantenimiento" model="ir.actions.act_window">
             <field name="name">Mantenimiento</field>
             <field name="res_model">mantenimiento</field>
