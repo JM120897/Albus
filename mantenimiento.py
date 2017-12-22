@@ -32,18 +32,6 @@ class mantenimiento(osv.Model):
             return False
         return True
 
-    def mymod_new(self, cr, uid, ids):
-        self.write(cr, uid, ids, { 'state' : 'solicitado' })
-        return True
-
-     def mymod_admitido(self, cr, uid, ids):
-        self.write(cr, uid, ids, { 'state' : 'enmante' })
-        return True
-
-    def mymod_finalizado(self, cr, uid, ids):
-        self.write(cr, uid, ids, { 'state' : 'finalizado' })
-        return True
-
 
     _name = 'mantenimiento'
     _description = 'Clase para el mantenimiento de un autobus'
