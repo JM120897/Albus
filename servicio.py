@@ -26,8 +26,8 @@ from osv import fields
 class servicio(osv.Model):
 
     def _check_kilometers(self, cr, uid, ids):
-        # No puede haber clases con capacidad negativa o superior a 50
-        serv=self.browse(cr, uid, ids):
+        # Los servicios tienen que tener almenos 0.1 KM para poder registrarse
+        serv=self.browse(cr, uid, ids[0],context=None)
         if serv.km <= 0:
             return False
         return True
