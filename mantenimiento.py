@@ -32,18 +32,6 @@ class mantenimiento(osv.Model):
             return False
         return True
 
-    def mymod_new(self, cr, uid, ids):
-        self.write(cr, uid, ids, { 'state' : 'solicitado' })
-        return True
-
-     def mymod_admitido(self, cr, uid, ids):
-        self.write(cr, uid, ids, { 'state' : 'enmante' })
-        return True
-
-    def mymod_finalizado(self, cr, uid, ids):
-        self.write(cr, uid, ids, { 'state' : 'finalizado' })
-        return True
-
 
     _name = 'mantenimiento'
     _description = 'Clase para el mantenimiento de un autobus'
@@ -53,7 +41,7 @@ class mantenimiento(osv.Model):
             'precio':fields.float('Precio', required=True),
             'fecha':fields.date('Fecha', required=True),
             'matricula_id':fields.many2one("autobus","Matricula"),
-            'state':fields.selection([('solicitado', 'Solicitado'),('encurso','encurso'),('finalizado','finalizado')], readonly=True),
+            'state':fields.selection([('solicitado', 'Solicitado'),('encurso','En Curso'),('finalizado','Finalizado')], readonly=True),
         }
 
 
