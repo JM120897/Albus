@@ -14,6 +14,16 @@
                 </form>
             </field>
         </record>
+        <separator string="Workflow" colspan="4" />
+					<field name="state" widget="statusbar"
+						statusbar_visible="solicitado,encurso,finalizado"
+						statusbar_colors='{"solicitado":"orange","encurso":"yellow","finalizado":"green"}' />
+					<group col="4" colspan="4">
+						<button name="button_encurso" states="solicitado"
+							string="Poner en curso" colspan="1" icon="gtk-apply" />
+						<button name="button_finalizado" states="encurso"
+							string="Finalizar" colspan="1" icon="gtk-apply" />
+				</group>
         <record id="view_garaje_mantenimiento_tree" model="ir.ui.view">
             <field name="name">view_mantenimiento_tree</field>
             <field name="model">mantenimiento</field>
@@ -40,16 +50,7 @@
 				</search>
 			</field>
 		</record>
-
-    <separator string="Workflow Actions" colspan="4"/>
-    <group colspan="4" col="3">
-        <button name="mymod_admitido" string="admitir" states="new" />
-        <button name="mymod_finalizado" string="finalizar" states="enmante" />
-
-
-    </group>
-
-		<record id="act_mantenimiento" model="ir.actions.act_window">
+  	<record id="act_mantenimiento" model="ir.actions.act_window">
             <field name="name">Mantenimiento</field>
             <field name="res_model">mantenimiento</field>
             <field name="view_type">form</field>

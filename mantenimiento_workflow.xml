@@ -1,48 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <openerp>
-  <data>
-    <!-- Declaración del workflow -->
-    <record model="workflow" id="wkf_mantenimiento">
-      <field name="name">mantenimiento.wkf</field>
-      <field name="osv">mantenimiento</field>
-      <field name="on_create">True</field>
-    </record>
-
-    <!-- Declaración de nodos -->
-    <record model="workflow.activity" id="act_new">
-      <field name="wkf_id" ref="wkf_mantenimiento"/>
-      <field name="flow_start">True</field>
-      <field name="name">new</field>
-      <field name="kind">function</field>
-      <field name="action">mymod_new()</field>
-    </record>
-
-    <record model="workflow.activity" id="act_enmante">
-      <field name="wkf_id" ref="wkf_mantenimiento"/>
-      <field name="name">enmante</field>
-      <field name="kind">function</field>
-      <field name="action">mymod_admitido()</field>
-    </record>
-
-    <record model="workflow.activity" id="act_finalizado">
-      <field name="wkf_id" ref="wkf_mantenimiento"/>
-      <field name="name">finalizado</field>
-      <field name="kind">function</field>
-      <field name="action">mymod_finalizado()</field>
-    </record>
-
-    <!-- Declaración de las transiciones -->
-    <record model="workflow.transition" id="t1">
-      <field name="act_from" ref="act_new"/>
-      <field name="act_to" ref="act_enmante"/>
-      <field name="signal">mymod_admitido</field>
-    </record>
-
-    <record model="workflow.transition" id="t2">
-      <field name="act_from" ref="act_enmante"/>
-      <field name="act_to" ref="act_finalizado"/>
-      <field name="signal">finalizado</field>
-    </record>
-
-    </data>
-  </openerp>
+	<data>
+		<record id="mantenimiento_workflow" model="workflow">
+			<field name="name">mantenimiento_workflow</field>
+			<field name="osv">mantenimiento</field>
+			<field name="on_create">True</field>
+		</record>
+		<record id="mantenimiento_solicitado" model="workflow.activity">
+			<field name="flow_start">True</field>
+			<field name="wkf_id" ref="mantenimiento_workflow" />
+			<field name="name">is_solicitado</field>
+			<field name="kind">dummy</field>
+		</record>
+		<record id="mantenimiento_encurso" model="workflow.activity">
+			<field name="wkf_id" ref="mantenimiento_workflow" />
+			<field name="name">is_encurso</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'encurso'})</field>
+		</record>
+		<record id="mantenimiento_finalizado" model="workflow.activity">
+			<field name="wkf_id" ref="mantenimiento_workflow" />
+			<field name="flow_stop">True</field>
+			<field name="name">is_finalizado</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'finalizado'})</field>
+		</record>
+		<record id="trans_solicitado_encurso" model="workflow.transition">
+			<field name="act_from" ref="mantenimiento_solicitado"/>
+			<field name="act_to" ref="mantenimiento_encurso"/>
+			<field name="signal">button_encurso</field>
+		</record>
+		<record id="trans_encurso_finalizado" model="workflow.transition">
+			<field name="act_from" ref="mantenimiento_encurso"/>
+			<field name="act_to" ref="mantenimiento_finalizado"/>
+			<field name="signal">button_finalizado</field>
+		</record>
+	</data>
+</openerp>
