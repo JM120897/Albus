@@ -22,7 +22,7 @@
 			<field name="flow_stop">True</field>
 			<field name="name">is_confirmado</field>
 			<field name="kind">function</field>
-			<field name="action">write({'state':'presupuestado'})</field>
+			<field name="action">write({'state':'confirmado'})</field>
 		</record>
 		<record id="trans_solicitado_presupuestado" model="workflow.transition">
 			<field name="act_from" ref="alquiler_solicitado"/>

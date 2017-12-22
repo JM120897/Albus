@@ -39,7 +39,7 @@ class alquiler(osv.Model):
             'servicio_id':fields.one2many('servicio','alquiler_id','Servicios'),
             'apuntes_id':fields.one2many('apuntes','alquiler_id','Apuntes'),
             'cliente_id':fields.many2one('cliente','Cliente'),
-            'state':fields.selection([('solicitado', 'Solicitado'),('presupuestado','Presupuestado'),('confirmado','Confirmado')], readonly=True, default='solicitado')
+            'state':fields.selection([('solicitado', 'Solicitado'),('presupuestado','Presupuestado'),('confirmado','Confirmado')],'Estado', readonly=True,)
             
         }
     
