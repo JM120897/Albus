@@ -28,7 +28,7 @@ class autobus(osv.Model):
     def _check_asientos(self, cr, uid, ids):
         # Los servicios tienen que tener almenos 0.1 KM para poder registrarse
         bus=self.browse(cr, uid, ids[0],context=None)
-        if bus.numAsientos <= 0:
+        if bus.numAsientos <12:
             return False
         return True
 
@@ -48,7 +48,7 @@ class autobus(osv.Model):
         }
 
 
-    _constraints = [(_check_asientos, 'El numero de asientos no pueden ser negativos' , [ 'numAsientos'])]
+    _constraints = [(_check_asientos, 'El numero de asientos no pueden ser menor que 0' , [ 'numAsientos'])]
 
 
 autobus()
