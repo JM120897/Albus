@@ -3,7 +3,7 @@
 #
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2010 Tiny SPRL (http://tiny.be). All Rights Reserved
-#    
+#
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -27,7 +27,15 @@ class vacaciones(osv.Model):
 
     _name = 'vacaciones'
     _description = 'Informacion sobre los vacaciones'
- 
+
+        def _check_dates(self, cr, uid, ids):
+            # Los servicios tienen que tener almenos 0.1 KM para poder registrarse
+            fecha=self.browse(cr, uid, ids[0],context=None)
+            if fecha.fechaIni == fecha.fechaFin:
+                return False
+            return True
+
+
     _columns = {
             'name':fields.char('ID', size=150, required=False, readonly=False),
             'descripcion':fields.text('Descripcion'),
@@ -35,4 +43,6 @@ class vacaciones(osv.Model):
             'fechaFin':fields.date('Fecha Fin', required=False, readonly=False),
             'conductor_id':fields.many2many('conductor','conductor_vacaciones_rel','vacacion_id','conductor_id','Conductores')
         }
+
+    _constraints = [(_check_dates, 'Las vacaciones no pueden empezar y terminar el mismo dia' )]
 vacaciones()
