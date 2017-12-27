@@ -17,7 +17,19 @@
 						</page>
 						<page string="Alquileres y Pago">
 							<field name="cuenta_id" />
-							<field name="alquiler_id" />
+							<field name="alquiler_id">
+								<form string="form_string_alquiler">
+									<field name="name" />
+									<field name="horas" />
+									<field name="fecha" />
+									<field name="numPersonas" />
+									<field name="lugarOrigen" />
+									<field name="lugarDestino" />
+									<field name="descripcion" />
+									<field name="servicio_id" />
+									<field name="apuntes_id" />
+								</form>
+							</field>
 						</page>
 					</notebook>
 				</form>
@@ -54,13 +66,25 @@
 						<t t-name="kanban-box">
 							<div class="oe_module_vignette">
 								<div class="oe_module_details">
-									<h4>
-										<a type="open"><field name="nombre" /> <field name="apellidos" /></a>
-									</h4>
+									<h3>
+										<a type="open">
+											<field name="nombre" />
+											<field name="apellidos" />
+										</a>
+									</h3>
 									<ul>
-										<li>DNI: <field name="name" /></li>
-										<li>Telefono: <field name="telefono" /></li>
-										<li>Correo: <field name="correo" /></li>
+										<li>
+											DNI:
+											<field name="name" />
+										</li>
+										<li>
+											Telefono:
+											<field name="telefono" />
+										</li>
+										<li>
+											Correo:
+											<field name="correo" />
+										</li>
 									</ul>
 								</div>
 							</div>

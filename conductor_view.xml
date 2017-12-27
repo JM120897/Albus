@@ -13,7 +13,15 @@
 						<field name="telefono" />
 						<field name="correo" />
 						<field name="cuenta_id" />
-						<field name="servicio_id" />
+						<field name="servicio_id">
+							<form>
+								<field name="name" />
+								<field name="descripcion" />
+								<field name="matricula_id" />
+								<field name="alquiler_id" />
+								<field name="km" />
+							</form>
+						</field>
 					</group>
 					<group col="2" colspan="2">
 						<field name="sexo" />
@@ -64,7 +72,7 @@
 			<field name="search_view_id" ref="view_conductor_search" />
 		</record>
 		<menuitem id="gestionConductor" name="Gestion Conductores"
-			action="act_conductor" sequence="120"/>
+			action="act_conductor" sequence="120" />
 		<menuitem id="conductor_menu" parent="gestionConductor" name="Conductor"
 			action="act_conductor" sequence="100" />
 		<menuitem name="Ver Conductores" id="conductor_submenu"

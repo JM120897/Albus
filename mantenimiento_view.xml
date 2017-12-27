@@ -10,7 +10,15 @@
 					<field name="fecha" />
 					<field name="precio" />
 					<field name="name" />
-					<field name="matricula_id" />
+					<field name="matricula_id">
+						<form>
+							<field name="name" />
+							<field name="numAsientos" />
+							<field name="modelo" />
+							<field name="consumo" />
+							<field name="revisado" />
+						</form>
+					</field>
 					<separator string="Workflow" colspan="4" />
 					<field name="state" widget="statusbar" statusbar_visible="solicitado,encurso,finalizado"
 						statusbar_colors='{"solicitado":"orange","encurso":"yellow","finalizado":"green"}' />

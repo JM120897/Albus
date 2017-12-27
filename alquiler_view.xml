@@ -15,7 +15,15 @@
 					<field name="lugarDestino" />
 					<field name="descripcion" />
 					<field name="cliente_id" />
-					<field name="servicio_id" />
+					<field name="servicio_id">
+						<form string="form_string_servicio">
+							<field name="name" />
+							<field name="descripcion" />
+							<field name="matricula_id" />
+							<field name="conductor_id" />
+							<field name="km" />
+						</form>
+					</field>
 					<field name="apuntes_id" />
 					<separator string="Workflow" colspan="4" />
 					<field name="state" widget="statusbar"

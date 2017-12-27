@@ -13,11 +13,11 @@
 					<field name="consumo" />
 					<field name="revisado" />
 					<field name="mantenimiento_id">
-						<tree string="form_string">
+						<form>
 							<field name="fecha" />
 							<field name="precio" />
 							<field name="name" />
-						</tree>
+						</form>
 					</field>
 				</form>
 			</field>
