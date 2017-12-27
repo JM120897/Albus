@@ -1,68 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
-	<data>
-		<record id="view_garaje_autobus_form" model="ir.ui.view">
-			<field name="name">view_autobus_form</field>
-			<field name="model">autobus</field>
-			<field name="type">form</field>
-			<field name="arch" type="xml">
-				<form string="form_string">
-					<field name="name" />
-					<field name="numAsientos" />
-					<field name="modelo" />
-					<field name="consumo" />
-					<field name="revisado" />
-					<field name="mantenimiento_id">
-						<form>
-							<field name="fecha" />
-							<field name="precio" />
-							<field name="name" />
-						</form>
-					</field>
-				</form>
-			</field>
-		</record>
-		<record id="view_garaje_autobus_tree" model="ir.ui.view">
-			<field name="name">view_autobus_tree</field>
-			<field name="model">autobus</field>
-			<field name="type">tree</field>
-			<field name="arch" type="xml">
-				<tree string="tree_string">
-					<field name="name" />
-					<field name="numAsientos" />
-					<field name="modelo" />
-					<field name="consumo" />
-					<field name="revisado" />
-					<field name="mantenimiento_id" />
-				</tree>
-			</field>
-		</record>
-		<record model="ir.ui.view" id="view_autobus_search">
-			<field name="name">view_autobus_search</field>
-			<field name="model">autobus</field>
-			<field name="type">search</field>
-			<field name="arch" type="xml">
-				<search string="mantenimiento_search">
-					<filter string="Minibus" domain="[('numAsientos','&lt;',31)]" />
-					<filter string="Necesitan mantenimiento" domain="[('revisado','=',1)]" />
-					<field name="name" />
-					<field name="modelo" />
-					<separator orientation="vertical" />
-				</search>
-			</field>
-		</record>
-		<record id="act_autobus" model="ir.actions.act_window">
-			<field name="name">Autobus</field>
-			<field name="res_model">autobus</field>
-			<field name="view_type">form</field>
-			<field name="view_mode">form,tree</field>
-			<field name="search_view_id" ref="view_autobus_search" />
-		</record>
-		<menuitem id="garaje" name="Garaje" action="act_autobus"
-			sequence="110" />
-		<menuitem id="autobus_menu" name="Gestion de Flota" action="act_autobus"
-			parent="garaje" sequence="100" />
-		<menuitem id="autobus_submenu" name="Ver Autobuses" parent="autobus_menu"
-			sequence="110" action="act_autobus" />
-	</data>
+    <data>
+        <record id="view_garaje_autobus_form" model="ir.ui.view">
+            <field name="name">view_autobus_form</field>
+            <field name="model">autobus</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="form_string">
+                    
+                    
+                    <field name="name" />
+                    <field name="numAsientos" />
+                    <field name="modelo" />
+                    <field name="consumo" on_change="onchange_consumo(consumo)"/>
+                    <field name="revisado" />
+                    <field name="mantenimiento_id">
+                        <tree string="form_string">
+                            <field name="fecha" />
+                            <field name="precio" />
+                            <field name="name" />
+                        </tree>
+                    </field>
+                    <newline></newline>
+                    <separator></separator>
+                    <button name="checkNoResivados" string="Comprobar Estados de Revision"
+                        type="object"></button>
+                </form>
+            </field>
+        </record>
+        <record id="view_garaje_autobus_tree" model="ir.ui.view">
+            <field name="name">view_autobus_tree</field>
+            <field name="model">autobus</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="tree_string">
+                    <field name="name" />
+                    <field name="numAsientos" />
+                    <field name="modelo" />
+                    <field name="consumo" />
+                    <field name="revisado" />
+                    <field name="mantenimiento_id" />
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_autobus_search">
+            <field name="name">view_autobus_search</field>
+            <field name="model">autobus</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="mantenimiento_search">
+                    <filter string="Minibus" domain="[('numAsientos','&lt;',31)]" />
+                    <filter string="Necesitan mantenimiento" domain="[('revisado','=',1)]" />
+                    <field name="name" />
+                    <field name="modelo" />
+                    <separator orientation="vertical" />
+                </search>
+            </field>
+        </record>
+        <record id="act_autobus" model="ir.actions.act_window">
+            <field name="name">Autobus</field>
+            <field name="res_model">autobus</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+            <field name="search_view_id" ref="view_autobus_search" />
+        </record>
+        <menuitem id="garaje" name="Garaje" action="act_autobus"
+            sequence="110" />
+        <menuitem id="autobus_menu" name="Gestion de Flota" action="act_autobus"
+            parent="garaje" sequence="100" />
+        <menuitem id="autobus_submenu" name="Ver Autobuses" parent="autobus_menu"
+            sequence="110" action="act_autobus" />
+    </data>
 </openerp>
