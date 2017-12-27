@@ -46,4 +46,6 @@ class vacaciones(osv.Model):
         }
 
     _constraints = [(_check_dates, 'Las vacaciones no pueden empezar y terminar el mismo dia', ['fechaIni'] )]
+    _sql_constraints = [('id_uniq_vacaciones', 'unique (name)', 'Ya existe una entrada de vacaciones con el mismo ID'),]
+    
 vacaciones()

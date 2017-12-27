@@ -42,7 +42,7 @@ class conductor(osv.Model):
             'vacacion_id':fields.many2many("vacaciones",'conductor_vacaciones_rel','conductor_id','vacacion_id','Vacaciones')
         }
 
-    _sql_constraints = [('dni_uniq', 'unique (name_id)', 'Ya existe un usuario con ese DNI'),]
-    _sql_constraints = [('cuenta_uniq', 'unique (cuenta_id)', 'Esa cuenta corriente pertence a otro conductor'),]
+    _sql_constraints = [('dni_uniq_conductor', 'unique (name)', 'Ya existe un usuario con ese DNI'),]
+    _sql_constraints = [('cuenta_uniq_conductor', 'unique (cuenta_id)', 'Esa cuenta corriente pertence a otro conductor'),]
 
 conductor()

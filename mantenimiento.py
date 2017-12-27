@@ -48,4 +48,5 @@ class mantenimiento(osv.Model):
     _defaults={'state':'solicitado',}
 
     _constraints = [(_check_precio, 'El precio del mantenimiento no puede ser menor de 0' , [ 'precio'])]
+    
 mantenimiento()

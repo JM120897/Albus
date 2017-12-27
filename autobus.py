@@ -49,6 +49,7 @@ class autobus(osv.Model):
 
 
     _constraints = [(_check_asientos, 'El numero de asientos no pueden ser negativos' , [ 'numAsientos'])]
+    _sql_constraints = [('matricula_uniq', 'unique (name)', 'Ya existe un autobus con esa matricula'),]
 
 
 autobus()

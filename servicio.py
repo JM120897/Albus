@@ -46,5 +46,6 @@ class servicio(osv.Model):
         }
 
     _constraints = [(_check_kilometers, 'Kilometro no pueden ser negativos' , [ 'km'])]
+    _sql_constraints = [('id_uniq_servicio', 'unique (name)', 'Ya existe un servicio con ese ID'),]
 
 servicio()

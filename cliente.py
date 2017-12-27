@@ -36,4 +36,7 @@ class cliente(osv.Model):
         'cuenta_id':fields.many2many('cuenta','cuenta_cliente_rel','cliente_id','cuenta_id','Cuentas'),
         'alquiler_id':fields.one2many("alquiler","cliente_id","Alquileres")
         }
+    
+    _sql_constraints = [('dni_uniq_cliente', 'unique (name)', 'Ya existe un usuario con ese DNI'),]
+    
 cliente()
