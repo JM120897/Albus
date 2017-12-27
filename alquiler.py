@@ -43,5 +43,6 @@ class alquiler(osv.Model):
             
         }
     
+    _sql_constraints = [('name_uniq_alquiler', 'unique (name)', 'Ya existe un usuario con ese DNI'),]
     _defaults={'state':'solicitado',}
 alquiler()
