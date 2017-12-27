@@ -2,7 +2,7 @@
 	<data>
 		<record id="client_demo" model="cliente">
 			<field name="name">12345678A</field>
-			<field name="telefono">600 000 000</field>
+			<field name="telefono">600000000</field>
 			<field name="nombre">Pepe</field>
 			<field name="apellidos">García Torres</field>
 			<field name="correo">pepegt@outlook.es</field>
