@@ -21,10 +21,6 @@
                             <field name="name" />
                         </tree>
                     </field>
-                    <newline></newline>
-                    <separator></separator>
-                    <button name="checkNoResivados" string="Comprobar Estados de Revision"
-                        type="object"></button>
                 </form>
             </field>
         </record>
