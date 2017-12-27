@@ -32,8 +32,21 @@ class autobus(osv.Model):
             return False
         return True
 
-
-
+    def onchange_consumo(self,cr,uid,ids,consum,context=None):
+        consumoMinimo=1.00;
+        if consum < consumoMinimo:
+            res = {
+                'value' : {
+                        'consumo':consumoMinimo
+                }
+            }
+        elif consum > consumoMinimo:
+                res = {
+                    'value' : {
+                            'consumo':consum
+                    }
+                }
+        return res
     _name = 'autobus'
     _description = 'Informacion sobre autobus'
 

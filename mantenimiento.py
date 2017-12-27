@@ -31,7 +31,7 @@ class mantenimiento(osv.Model):
         if serv.precio <= 0:
             return False
         return True
-
+    
 
     _name = 'mantenimiento'
     _description = 'Clase para el mantenimiento de un autobus'
@@ -41,12 +41,12 @@ class mantenimiento(osv.Model):
             'precio':fields.float('Precio', required=True),
             'fecha':fields.date('Fecha', required=True),
             'matricula_id':fields.many2one("autobus","Matricula"),
-            'state':fields.selection([('solicitado', 'Solicitado'),('encurso','En Curso'),('finalizado','Finalizado')], readonly=True),
+            'state':fields.selection([('solicitado', 'Solicitado'),('encurso','En Curso'),('finalizado','Finalizado')],'Estado', readonly=True),
         }
 
 
     _defaults={'state':'solicitado',}
 
     _constraints = [(_check_precio, 'El precio del mantenimiento no puede ser menor de 0' , [ 'precio'])]
-    
+
 mantenimiento()
