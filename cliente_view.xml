@@ -53,14 +53,16 @@
 					<templates>
 						<t t-name="kanban-box">
 							<div class="oe_module_vignette">
-								<ul>
-									<li><a type="open"><field name="name" /></a></li>
-									<li><field name="nombre" /></li>
-									<li><field name="apellidos" /></li>
-									<li><field name="telefono" /></li>
-									<li><field name="correo" /></li>
-								</ul>
-								
+								<div class="oe_module_details">
+									<h3>
+										<a type="open"><field name="nombre" /> <field name="apellidos" /></a>
+									</h3>
+									<ul>
+										<li>DNI: <field name="name" /></li>
+										<li>Telefono: <field name="telefono" /></li>
+										<li>Correo: <field name="correo" /></li>
+									</ul>
+								</div>
 							</div>
 						</t>
 					</templates>
