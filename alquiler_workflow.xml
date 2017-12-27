@@ -24,6 +24,13 @@
 			<field name="kind">function</field>
 			<field name="action">write({'state':'confirmado'})</field>
 		</record>
+		<record id="alquiler_cancelado" model="workflow.activity">
+			<field name="wkf_id" ref="alquiler_workflow" />
+			<field name="flow_stop">True</field>
+			<field name="name">is_confirmado</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'cancelado'})</field>
+		</record>
 		<record id="trans_solicitado_presupuestado" model="workflow.transition">
 			<field name="act_from" ref="alquiler_solicitado"/>
 			<field name="act_to" ref="alquiler_presupuestado"/>
@@ -33,6 +40,16 @@
 			<field name="act_from" ref="alquiler_presupuestado"/>
 			<field name="act_to" ref="alquiler_confirmado"/>
 			<field name="signal">button_confirmado</field>
+		</record>
+		<record id="trans_solicitado_cancelado" model="workflow.transition">
+			<field name="act_from" ref="alquiler_solicitado"/>
+			<field name="act_to" ref="alquiler_cancelado"/>
+			<field name="signal">button_cancelado</field>
+		</record>
+		<record id="trans_presupuestado_cancelado" model="workflow.transition">
+			<field name="act_from" ref="alquiler_presupuestado"/>
+			<field name="act_to" ref="alquiler_cancelado"/>
+			<field name="signal">button_cancelado</field>
 		</record>
 	</data>
 </openerp>

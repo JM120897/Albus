@@ -39,6 +39,34 @@
 				</tree>
 			</field>
 		</record>
+		<record model="ir.ui.view" id="view_cliente_kanban">
+			<field name="name">view_cliente_kanban</field>
+			<field name="model">cliente</field>
+			<field name="type">kanban</field>
+			<field name="arch" type="xml">
+				<kanban>
+					<field name="name" />
+					<field name="nombre" />
+					<field name="apellidos" />
+					<field name="telefono" />
+					<field name="correo" />
+					<templates>
+						<t t-name="kanban-box">
+							<div class="oe_module_vignette">
+								<ul>
+									<li><a type="open"><field name="name" /></a></li>
+									<li><field name="nombre" /></li>
+									<li><field name="apellidos" /></li>
+									<li><field name="telefono" /></li>
+									<li><field name="correo" /></li>
+								</ul>
+								
+							</div>
+						</t>
+					</templates>
+				</kanban>
+			</field>
+		</record>
 		<record model="ir.ui.view" id="view_cliente_search">
 			<field name="name">view_cliente_search</field>
 			<field name="model">cliente</field>
@@ -58,7 +86,7 @@
 			<field name="name">Cliente</field>
 			<field name="res_model">cliente</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">form,tree</field>
+			<field name="view_mode">form,tree,kanban</field>
 			<field name="search_view_id" ref="view_cliente_search" />
 		</record>
 		<menuitem id="cliente_menu" parent="gestionAlquiler" name="Cliente"
