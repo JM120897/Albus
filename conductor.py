@@ -25,6 +25,10 @@ from osv import osv
 from osv import fields
 
 class conductor(osv.Model):
+    
+    def quitarVacaciones(self, cr, uid, ids, context=None):
+        res = self.write(cr, uid, ids, {'vacacion_id':[(5, )]}, context=None)
+        return res
 
     _name = 'conductor'
     _description = 'Informacion sobre los conductores'
@@ -34,7 +38,7 @@ class conductor(osv.Model):
             'nombre':fields.char('Nombre', size=100, required=False, readonly=False),
             'apellidos':fields.char('Apellidos', size=100, required=False, readonly=False),
             'sexo':fields.selection((('h','Hombre'),('m','Mujer'),('x','Otro')),'Sexo'),
-            'telefono':fields.integer('Telefono',required=False, readonly=False),
+            'telefono':fields.integer('Telefono', required=False, readonly=False),
             'correo':fields.char('Correo', size=100, required=False, readonly=False),
             'direccion':fields.char('Direccion', size=100, required=False, readonly=False),
             'servicio_id':fields.one2many("servicio","conductor_id","Servicios"),

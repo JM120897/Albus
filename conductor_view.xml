@@ -1,81 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
-	<data>
-		<record id="view_conductor_form" model="ir.ui.view">
-			<field name="name">view_conductor_form</field>
-			<field name="model">conductor</field>
-			<field name="type">form</field>
-			<field name="arch" type="xml">
-				<form string="form_string">
-					<group col="2" colspan="2">
-						<field name="name" />
-						<field name="nombre" />
-						<field name="telefono" />
-						<field name="correo" />
-						<field name="cuenta_id" />
-						<field name="servicio_id">
-							<form>
-								<field name="name" />
-								<field name="descripcion" />
-								<field name="matricula_id" />
-								<field name="alquiler_id" />
-								<field name="km" />
-							</form>
-						</field>
-					</group>
-					<group col="2" colspan="2">
-						<field name="sexo" />
-						<field name="apellidos" />
-						<field name="direccion" />
-						<field name="vacacion_id" />
-					</group>
-				</form>
-			</field>
-		</record>
-		<record id="view_conductor_tree" model="ir.ui.view">
-			<field name="name">view_conductor_tree</field>
-			<field name="model">conductor</field>
-			<field name="type">tree</field>
-			<field name="arch" type="xml">
-				<tree string="tree_string">
-					<field name="name" />
-					<field name="nombre" />
-					<field name="apellidos" />
-					<field name="sexo" />
-					<field name="telefono" />
-					<field name="correo" />
-					<field name="direccion" />
-					<field name="cuenta_id" />
-					<field name="servicio_id" />
-					<field name="vacacion_id" />
-				</tree>
-			</field>
-		</record>
-		<record model="ir.ui.view" id="view_conductor_search">
-			<field name="name">view_conductor_search</field>
-			<field name="model">conductor</field>
-			<field name="type">search</field>
-			<field name="arch" type="xml">
-				<search string="conductor_search">
-					<field name="name" />
-					<field name="nombre" />
-					<field name="apellidos" />
-					<separator orientation="vertical" />
-				</search>
-			</field>
-		</record>
-		<record id="act_conductor" model="ir.actions.act_window">
-			<field name="name">Conductor</field>
-			<field name="res_model">conductor</field>
-			<field name="view_type">form</field>
-			<field name="view_mode">form,tree</field>
-			<field name="search_view_id" ref="view_conductor_search" />
-		</record>
-		<menuitem id="gestionConductor" name="Gestion Conductores"
-			action="act_conductor" sequence="120" />
-		<menuitem id="conductor_menu" parent="gestionConductor" name="Conductor"
-			action="act_conductor" sequence="100" />
-		<menuitem name="Ver Conductores" id="conductor_submenu"
-			parent="conductor_menu" sequence="110" action="act_conductor" />
-	</data>
+    <data>
+        <record id="view_conductor_form" model="ir.ui.view">
+            <field name="name">view_conductor_form</field>
+            <field name="model">conductor</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="form_string">
+                    <group col="2" colspan="2">
+                        <field name="name" />
+                        <field name="nombre" />
+                        <field name="telefono" />
+                        <field name="correo" />
+                        <field name="cuenta_id" />
+                        <field name="servicio_id" />
+                    </group>
+                    <group col="2" colspan="2">
+                        <field name="sexo" />
+                        <field name="apellidos" />
+                        <field name="direccion" />
+                        <field name="vacacion_id" />
+                    </group>
+                    <newline></newline>
+                    <separator></separator>
+                    <button name="quitarVacaciones" string="Quitar todas las vacaciones"
+                        type="object"></button>
+                </form>
+
+            </field>
+        </record>
+        <record id="view_conductor_tree" model="ir.ui.view">
+            <field name="name">view_conductor_tree</field>
+            <field name="model">conductor</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="tree_string">
+                    <field name="name" />
+                    <field name="nombre" />
+                    <field name="apellidos" />
+                    <field name="sexo" />
+                    <field name="telefono" />
+                    <field name="correo" />
+                    <field name="direccion" />
+                    <field name="cuenta_id" />
+                    <field name="servicio_id" />
+                    <field name="vacacion_id" />
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_conductor_search">
+            <field name="name">view_conductor_search</field>
+            <field name="model">conductor</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="conductor_search">
+                    <field name="name" />
+                    <field name="nombre" />
+                    <field name="apellidos" />
+                    <separator orientation="vertical" />
+                </search>
+            </field>
+        </record>
+        <record id="act_conductor" model="ir.actions.act_window">
+            <field name="name">Conductor</field>
+            <field name="res_model">conductor</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+            <field name="search_view_id" ref="view_conductor_search" />
+        </record>
+        <menuitem id="gestionConductor" name="Gestion Conductores"
+            action="act_conductor" sequence="120" />
+        <menuitem id="conductor_menu" parent="gestionConductor" name="Conductor"
+            action="act_conductor" sequence="100" />
+        <menuitem name="Ver Conductores" id="conductor_submenu"
+            parent="conductor_menu" sequence="110" action="act_conductor" />
+    </data>
 </openerp>
