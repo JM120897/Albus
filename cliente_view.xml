@@ -54,9 +54,9 @@
 						<t t-name="kanban-box">
 							<div class="oe_module_vignette">
 								<div class="oe_module_details">
-									<h3>
+									<h4>
 										<a type="open"><field name="nombre" /> <field name="apellidos" /></a>
-									</h3>
+									</h4>
 									<ul>
 										<li>DNI: <field name="name" /></li>
 										<li>Telefono: <field name="telefono" /></li>
