@@ -31,6 +31,14 @@ class autobus(osv.Model):
         if bus.numAsientos <=11:
             return False
         return True
+    
+    def _numero_servicios(self, cr, uid, ids, field, args, context=None):
+        servicios = 0
+        
+        for autobus in self.browse(cr, uid, ids, context = context):
+            servicios = len(autobus.servicio_id)
+            
+        return servicios
 
     def onchange_consumo(self,cr,uid,ids,consum,context=None):
         consumoMinimo=1.00;
@@ -58,6 +66,7 @@ class autobus(osv.Model):
             'revisado':fields.boolean('Necesita Revision'), #Cada mes este atributo pasara a FALSE
             'mantenimiento_id':fields.one2many("mantenimiento","matricula_id","Mantenimientos"),
             'servicio_id':fields.one2many("servicio","matricula_id","Servicios"),
+            'numServicios':fields.function(_numero_servicios, type='integer', string="Número de Servicios", store=True)
         }
 
 
