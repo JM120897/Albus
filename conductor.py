@@ -26,6 +26,7 @@ from osv import fields
 
 class conductor(osv.Model):
     
+    #Intento de constraint funcional
     def _check_cuenta(self, cr, uid, ids, context=None):
         conductor = self.browse(cr, uid, ids[0], context=None) 
         cuenta = conductor.cuenta_id
@@ -55,7 +56,7 @@ class conductor(osv.Model):
             'vacacion_id':fields.many2many("vacaciones",'conductor_vacaciones_rel','conductor_id','vacacion_id','Vacaciones')
         }
 
-    _constraints = [(_check_cuenta, 'Esa cuenta pertenece a un cliente' , [ 'cuenta_id'])]
+    #_constraints = [(_check_cuenta, 'Esa cuenta pertenece a un cliente' , [ 'cuenta_id'])]
     _sql_constraints = [('dni_uniq_conductor', 'unique (name)', 'Ya existe un usuario con ese DNI'),]
     _sql_constraints = [('cuenta_uniq_conductor', 'unique (cuenta_id)', 'Esa cuenta corriente pertence a otro conductor'),]
 
