@@ -1,11 +1,239 @@
+<?xml version="1.0"?>
 <openerp>
-	<data>
-		<record id="client_demo" model="cliente">
-			<field name="name">12345678A</field>
-			<field name="telefono">600000000</field>
-			<field name="nombre">Pepe</field>
-			<field name="apellidos">García Torres</field>
-			<field name="correo">pepegt@outlook.es</field>
-		</record>
-	</data>
+    <data>
+        <!--Alquiler -->
+        <record id="alquiler_demo1" model="alquiler">
+            <field name="name">Alquiler01</field>
+            <field name="horas">2</field>
+            <field name="fecha">28-12-2017</field>
+            <field name="numPersonas">25</field>
+            <field name="descripcion">Alquiler 2</field>
+            <field name="lugarOrigen">Madrid</field>
+            <field name="lugarDestino">Barcelona</field>
+            <field name="servicio_id"></field>
+            <field name="apuntes_id"></field>
+            <field name="cliente_id"></field>
+            <field name="state">confirmado</field>
+        </record>
+        <record id="alquiler_demo2" model="alquiler">
+            <field name="name">Alquiler02</field>
+            <field name="horas">3</field>
+            <field name="fecha">30-12-2017</field>
+            <field name="numPersonas">37</field>
+            <field name="descripcion">Alquiler 3</field>
+            <field name="lugarOrigen">Pais Vasco</field>
+            <field name="lugarDestino">Santander</field>
+            <field name="servicio_id"></field>
+            <field name="apuntes_id"></field>
+            <field name="cliente_id"></field>
+            <field name="state">presupuestado</field>
+        </record>
+        <record id="alquiler_demo3" model="alquiler">
+            <field name="name">Alquiler03</field>
+            <field name="horas">1</field>
+            <field name="fecha">27-12-2017</field>
+            <field name="numPersonas">50</field>
+            <field name="descripcion">Alquiler 3</field>
+            <field name="lugarOrigen">Sevilla</field>
+            <field name="lugarDestino">Dos Hermanas</field>
+            <field name="servicio_id"></field>
+            <field name="apuntes_id"></field>
+            <field name="cliente_id"></field>
+            <field name="state">solicitado</field>
+        </record>
+        <!--Cuentas -->
+        <record id="cuentas_demo1" model="cuenta">
+            <field name="name">001</field>
+            <field name="banco">Santander</field>
+        </record>
+        <record id="cuentas_demo2" model="cuenta">
+            <field name="name">002</field>
+            <field name="banco">Vacasflacas</field>
+        </record>
+        <record id="cuentas_demo3" model="cuenta">
+            <field name="name">003</field>
+            <field name="banco">Sabadell</field>
+        </record>
+        <!--Cliente -->
+        <record id="cliente_demo1" model="cliente">
+            <field name="name">12345678A</field>
+            <field name="telefono">600000000</field>
+            <field name="nombre">Pepe</field>
+            <field name="apellidos">García Torres</field>
+            <field name="correo">pepegt@outlook.es</field>
+            <field name="cuenta_id" eval="[(6,0,[cuentas_demo1,cuentas_demo2, ])]"></field>
+            <field name="alquiler_id" eval="[(6,0,[alquiler_demo1, ])]"></field>
+        </record>
+        <record id="cliente_demo2" model="cliente">
+            <field name="name">87654321B</field>
+            <field name="telefono">664237186</field>
+            <field name="nombre">Domingo</field>
+            <field name="apellidos">BaseDatos Locas</field>
+            <field name="correo">erSunday@outlook.es</field>
+            <field name="cuenta_id" eval="[(6,0,[cuentas_demo2, ])]"></field>
+            <field name="alquiler_id" eval="[(6,0,[alquiler_demo2, ])]"></field>
+        </record>
+        <record id="cliente_demo3" model="cliente">
+            <field name="name">87321456C</field>
+            <field name="telefono">634696314</field>
+            <field name="nombre">Carlos</field>
+            <field name="apellidos">Apruebanos MushoBetis</field>
+            <field name="correo">tsichulo@outlook.es</field>
+            <field name="cuenta_id" eval="[(6,0,[cuentas_demo1, ])]"></field>
+            <field name="alquiler_id" eval="[(6,0,[alquiler_demo3, ])]"></field>
+        </record>
+        <!--Vacaciones -->
+        <record id="vacaciones_demo1" model="vacaciones">
+            <field name="name">1</field>
+            <field name="descripcion">Vacaciones 1</field>
+            <field name="fechaIni">21-12-2017</field>
+            <field name="fechaFin">30-12-2017</field>
+        </record>
+        <record id="vacaciones_demo2" model="vacaciones">
+            <field name="name">2</field>
+            <field name="descripcion">Vacaciones 2</field>
+            <field name="fechaIni">1-12-2017</field>
+            <field name="fechaFin">12-12-2017</field>
+        </record>
+        <record id="vacaciones_demo3" model="vacaciones">
+            <field name="name">3</field>
+            <field name="descripcion">Vacaciones 3</field>
+            <field name="fechaIni">23-12-2017</field>
+            <field name="fechaFin">31-12-2017</field>
+        </record>
+        <!--Autobus -->
+        <record id="autobus_demo1" model="autobus">
+            <field name="name">6534ABC</field>
+            <field name="numAsientos">20</field>
+            <field name="modelo">Nii-San</field>
+            <field name="consumo">5.00</field>
+            <field name="revisado">True</field>
+            <field name="mantenimiento_id"></field>
+            <field name="servicio_id"></field>
+        </record>
+        <record id="autobus_demo2" model="autobus">
+            <field name="name">0123DEF</field>
+            <field name="numAsientos">30</field>
+            <field name="modelo">Mercedes</field>
+            <field name="consumo">10.00</field>
+            <field name="revisado">False</field>
+            <field name="mantenimiento_id"></field>
+            <field name="servicio_id"></field>
+        </record>
+        <record id="autobus_demo3" model="autobus">
+            <field name="name">9874GHI</field>
+            <field name="numAsientos">50</field>
+            <field name="modelo">Man</field>
+            <field name="consumo">15.00</field>
+            <field name="revisado">True</field>
+            <field name="servicio_id"></field>
+        </record>
+        <!--Conductor -->
+        <record id="conductor_demo1" model="conductor">
+            <field name="name">06345961Z</field>
+            <field name="nombre">Pedro</field>
+            <field name="apellidos">Zamorano Camacho</field>
+            <field name="sexo">h</field>
+            <field name="telefono">654923871</field>
+            <field name="correo">pedro@gmail.com</field>
+            <field name="direccion">Plaza Venecia 15 2A</field>
+            <field name="servicio_id"></field>
+            <field name="cuenta_id" ref="cuentas_demo3"></field>
+            <field name="vacacion_id" eval="[(6,0,[vacaciones_demo1, ])]"></field>
+        </record>
+        <record id="conductor_demo2" model="conductor">
+            <field name="name">56429830W</field>
+            <field name="nombre">Viva</field>
+            <field name="apellidos">Nuestro Conductor</field>
+            <field name="sexo">h</field>
+            <field name="telefono">653791284</field>
+            <field name="correo">conductor@gmail.com</field>
+            <field name="direccion">Plaza Carlos Maria Isidro de Borbon 1 1A</field>
+            <field name="servicio_id"></field>
+            <field name="vacacion_id" eval="[(6,0,[vacaciones_demo1,vacaciones_demo2, ])]"></field>
+        </record>
+        <record id="conductor_demo3" model="conductor">
+            <field name="name">75126493Q</field>
+            <field name="nombre">Brandy</field>
+            <field name="apellidos">Pasea a Pere</field>
+            <field name="sexo">h</field>
+            <field name="telefono">637196254</field>
+            <field name="correo">brandy@gmail.com</field>
+            <field name="direccion">Plaza de Parma 8 3D</field>
+            <field name="servicio_id"></field>
+            <field name="vacacion_id" eval="[(6,0,[vacaciones_demo2, ])]"></field>
+        </record>
+        <!--Servicios -->
+        <record id="servicio_demo1" model="servicio">
+            <field name="name">Servicio 1</field>
+            <field name="descripcion">Servicio 1</field>
+            <field name="km">25</field>
+            <field name="matricula_id" ref="autobus_demo1"></field>
+            <field name="conductor_id" ref="conductor_demo1"></field>
+            <field name="alquiler_id" ref="alquiler_demo1"></field>
+        </record>
+        <record id="servicio_demo2" model="servicio">
+            <field name="name">Servicio 2</field>
+            <field name="descripcion">Servicio 2</field>
+            <field name="km">50</field>
+            <field name="matricula_id"></field>
+            <field name="conductor_id"></field>
+            <field name="alquiler_id"></field>
+        </record>
+        <record id="servicio_demo3" model="servicio">
+            <field name="name">3</field>
+            <field name="descripcion">Vacaciones 3</field>
+            <field name="km">17</field>
+            <field name="matricula_id"></field>
+            <field name="conductor_id"></field>
+            <field name="alquiler_id"></field>
+        </record>
+        <!--Mantenimientos -->
+        <record id="mantenimiento_demo1" model="mantenimiento">
+            <field name="name">mantenimiento01</field>
+            <field name="precio">20</field>
+            <field name="fecha">29-12-2017</field>
+            <field name="matricula_id" ref="autobus_demo3"></field>
+            <field name="state">solicitado</field>
+        </record>
+        <record id="mantenimiento_demo2" model="mantenimiento">
+            <field name="name">mantenimiento02</field>
+            <field name="precio">50</field>
+            <field name="fecha">30-12-2017</field>
+            <field name="matricula_id"></field>
+            <field name="state">encurso</field>
+        </record>
+        <record id="mantenimiento_demo3" model="mantenimiento">
+            <field name="name">mantenimiento03</field>
+            <field name="precio">30</field>
+            <field name="fecha">28-12-2017</field>
+            <field name="matricula_id" ref="autobus_demo1"></field>
+            <field name="state">finalizado</field>
+        </record>
+        <!--Apuntes -->
+        <record id="apuntes_demo1" model="apuntes">
+            <field name="name">apuntes01</field>
+            <field name="importe">20</field>
+            <field name="fechaVen">9-1-2018</field>
+            <field name="estado">False</field>
+            <field name="cuenta_id" ref="cuentas_demo1"></field>
+            <field name="alquiler_id" ref="alquiler_demo1"></field>
+        </record>
+        <record id="apuntes_demo2" model="apuntes">
+            <field name="name">apuntes02</field>
+            <field name="importe">30</field>
+            <field name="fechaVen">5-1-2018</field>
+            <field name="estado">False</field>
+            <field name="cuenta_id"></field>
+            <field name="alquiler_id"></field>
+        </record>
+        <record id="apuntes_demo3" model="apuntes">
+            <field name="name">apuntes03</field>
+            <field name="importe">40</field>
+            <field name="fechaVen">20-1-2018</field>
+            <field name="estado">True</field>
+            <field name="cuenta_id"></field>
+            <field name="alquiler_id"></field>
+        </record>
+    </data>
 </openerp>
